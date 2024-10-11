@@ -140,7 +140,7 @@ section.home {
 
 .about h2 {
     font-size: 2.5em;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     color: #022b46;
 }
 
@@ -149,9 +149,31 @@ section.home {
     margin: auto;
     font-size: 1.2em;
     line-height: 1.8;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #022b46;
 }
+
+.about h1 {
+    margin-bottom: 5px;
+}
+
+.about h1 ul::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5em;
+    color: #1d4158;
+
+}
+
+
+.about ul {
+    margin-bottom: 30px;
+}
+
+
+
 
 /* Skills Section */
 .skills {
