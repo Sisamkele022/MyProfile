@@ -51,9 +51,10 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #2980b9;
-    border-radius: 5px;
+    text-decoration: underline;
+    color: #2980b9;
 }
+
 
 /* Main Section */
 main {
@@ -131,7 +132,7 @@ section.home {
 
 /* About Section */
 .about {
-    padding: 60px 20px;
+    padding: 50px 10px;
     text-align: center;
     background-color: #ecf0f1;
     color: #022b46;
@@ -139,7 +140,7 @@ section.home {
 
 .about h2 {
     font-size: 2.5em;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     color: #022b46;
 }
 
@@ -161,6 +162,7 @@ section.home {
 
 .skills h2 {
     font-size: 2.5em;
+    margin-top: -1%;
     margin-bottom: 30px;
     color: #022b46;
 }
@@ -170,6 +172,7 @@ section.home {
     justify-content: space-around;
     max-width: 1200px;
     margin: auto;
+    margin-top: -2%;
     text-align: left;
     gap: 40px;
 }
@@ -209,6 +212,25 @@ section.home {
     color: #1d4158;
 }
 
+.skills-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.progress-bar {
+    background-color: #f3f3f3;
+    border-radius: 5px;
+    margin: 5px 0;
+    height: 10px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #2980b9;
+    height: 100%;
+    border-radius: 5px;
+}
+
 /* Contact Section Styles */
 .contact-section {
     max-width: 600px;
@@ -234,7 +256,7 @@ section.home {
 }
 
 .contact-form .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
 }
 
 .contact-form label {
@@ -280,6 +302,70 @@ section.home {
     background-color: #053d79;
 }
 
+/* Projects Section Styles */
+.projects {
+    text-align: center;
+    padding: 100px 20px 20px;  /* Added padding-top to push the section below the fixed header */
+}
+
+.projects h1 {
+    margin-top: -5%;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #022b46;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.project-item {
+    background-color: #2c3e50;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.project-item p {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.project-item a {
+    text-decoration: none;
+    color: black; /* Set the text color to black */
+    font-weight: bold;
+    background-color: white; /* Keep the background color as white */
+    padding: 5px 10px; /* Reduce padding to make the box smaller */
+    border: 2px solid white; /* Optional: keep the border */
+    border-radius: 5px; /* Optional: keep rounded corners */
+    display: inline-block; /* Ensure the anchor behaves like a block element */
+    transition: background-color 0.3s; /* Optional: for smooth transition on hover */
+}
+
+.project-item a:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: change background on hover */
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
 /* Footer */
 footer {
     background-color: #2c3e50;
@@ -304,8 +390,16 @@ footer ul li {
 footer ul li a {
     color: white;
     text-decoration: none;
+    display: flex;
+    align-items: center; /* Center the icon */
+}
+
+footer ul li a i {
+    font-size: 24px; /* Adjust icon size */
+    margin-right: 5px; /* Space between the icon and any text */
 }
 
 footer ul li a:hover {
     text-decoration: underline;
 }
+
