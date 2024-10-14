@@ -425,3 +425,15 @@ footer ul li a:hover {
     text-decoration: underline;
 }
 
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    /* Responsive adjustments for larger devices */
+}
+
+@media (max-width: 768px) {
+    /* Adjustments for tablets and smaller screens */
+}
+
+@media (max-width: 480px) {
+    /* Further adjustments for mobile screens */
+}
