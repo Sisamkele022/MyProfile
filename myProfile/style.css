@@ -327,7 +327,7 @@ section.home {
 /* Projects Section Styles */
 .projects {
     text-align: center;
-    padding: 100px 20px 20px;  /* Added padding-top to push the section below the fixed header */
+    padding: 100px 20px 20px;
 }
 
 .projects h1 {
@@ -338,22 +338,38 @@ section.home {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex; /* Use flexbox to align items horizontally */
     gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
+    overflow-x: auto; /* Allow horizontal scrolling for smaller screens */
+    padding: 10px;
+    max-width: 100%;
 }
 
 .project-item {
     background-color: #2c3e50;
-    padding: 20px;
+    width: 300px; /* Set a fixed width for each project item */
+    min-height: 400px; /* Set a minimum height for better alignment */
     border-radius: 15px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent items from shrinking */
+}
+
+.project-images {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.project-images img {
+    width: calc(50% - 5px); /* Half width of the project item minus gap */
+    border-radius: 10px;
 }
 
 .project-item h2 {
@@ -369,24 +385,25 @@ section.home {
 
 .project-item a {
     text-decoration: none;
-    color: black; /* Set the text color to black */
+    color: black;
     font-weight: bold;
-    background-color: white; /* Keep the background color as white */
-    padding: 5px 10px; /* Reduce padding to make the box smaller */
-    border: 2px solid white; /* Optional: keep the border */
-    border-radius: 5px; /* Optional: keep rounded corners */
-    display: inline-block; /* Ensure the anchor behaves like a block element */
-    transition: background-color 0.3s; /* Optional: for smooth transition on hover */
+    background-color: white;
+    padding: 5px 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s;
 }
 
 .project-item a:hover {
-    background-color: rgba(255, 255, 255, 0.8); /* Optional: change background on hover */
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 .project-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
 
 /* Footer */
 footer {
