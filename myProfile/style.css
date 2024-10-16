@@ -404,6 +404,27 @@ section.home {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Carousel Styles */
+.carousel {
+    position: relative;
+    width: 100%;
+    max-height: 200px; /* Adjust as needed */
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.carousel img {
+    width: 100%;
+    display: none; /* Hide all images by default */
+    transition: opacity 0.5s ease;
+}
+
+.carousel img.active {
+    display: block; /* Show the active image */
+}
+
+
 
 /* Footer */
 footer {

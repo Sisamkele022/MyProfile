@@ -7,7 +7,6 @@
     <title>Projects | My Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=0.8">
 </head>
 <body>
     <header>
@@ -26,46 +25,46 @@
         <h1>My Projects</h1>
         <div class="projects-grid">
             <div class="project-item">
-                <div class="project-images">
-                    <img src="path/to/expense-tracker-screenshot1.jpg" alt="Expense Tracker Screenshot 1">
-                    <img src="path/to/expense-tracker-screenshot2.jpg" alt="Expense Tracker Screenshot 2">
-                    <img src="path/to/expense-tracker-screenshot3.jpg" alt="Expense Tracker Screenshot 3">
-                    <img src="path/to/expense-tracker-screenshot4.jpg" alt="Expense Tracker Screenshot 4">
-                </div>
                 <h2>Expense Tracker App (React)</h2>
+                <div class="carousel">
+                    <img src="assets/Expense1.png" alt="Screenshot 1" class="active">
+                    <img src="assets/Expense2.png" alt="Screenshot 2">
+                    <img src="assets/Expense3.png" alt="Screenshot 3">
+                    <img src="assets/map.png" alt="Screenshot 4">
+                </div>
                 <p>Description: A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. Includes user login and database storage.</p>
                 <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
             </div>
             <div class="project-item">
-                <div class="project-images">
-                    <img src="path/to/task-management-screenshot1.jpg" alt="Task Management Screenshot 1">
-                    <img src="path/to/task-management-screenshot2.jpg" alt="Task Management Screenshot 2">
-                    <img src="path/to/task-management-screenshot3.jpg" alt="Task Management Screenshot 3">
-                    <img src="path/to/task-management-screenshot4.jpg" alt="Task Management Screenshot 4">
-                </div>
                 <h2>Task Management App (React Native)</h2>
+                <div class="carousel">
+                    <img src="assets/map.png" alt="Task App Screenshot 1" class="active">
+                    <img src="assets/task2.jpg" alt="Task App Screenshot 2">
+                    <img src="assets/task3.jpg" alt="Task App Screenshot 3">
+                    <img src="assets/task4.jpg" alt="Task App Screenshot 4">
+                </div>
                 <p>Description: A mobile app for managing tasks with features like adding tasks, setting deadlines, and receiving notifications.</p>
                 <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
             </div>
             <div class="project-item">
-                <div class="project-images">
-                    <img src="path/to/e-hailing-screenshot1.jpg" alt="E-Hailing Subscription Screenshot 1">
-                    <img src="path/to/e-hailing-screenshot2.jpg" alt="E-Hailing Subscription Screenshot 2">
-                    <img src="path/to/e-hailing-screenshot3.jpg" alt="E-Hailing Subscription Screenshot 3">
-                    <img src="path/to/e-hailing-screenshot4.jpg" alt="E-Hailing Subscription Screenshot 4">
-                </div>
                 <h2>E-Hailing Subscription App (React Native and Django)</h2>
+                <div class="carousel">
+                    <img src="assets/ehailing1.jpg" alt="E-Hailing Screenshot 1" class="active">
+                    <img src="assets/ehailing2.jpg" alt="E-Hailing Screenshot 2">
+                    <img src="assets/ehailing3.jpg" alt="E-Hailing Screenshot 3">
+                    <img src="assets/ehailing4.jpg" alt="E-Hailing Screenshot 4">
+                </div>
                 <p>Description: A mobile app for booking monthly rides with pickup and drop-off locations, allowing users to manage daily ride subscriptions and view fare estimates.</p>
                 <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
             </div>
             <div class="project-item">
-                <div class="project-images">
-                    <img src="path/to/e-commerce-screenshot1.jpg" alt="E-commerce Website Screenshot 1">
-                    <img src="path/to/e-commerce-screenshot2.jpg" alt="E-commerce Website Screenshot 2">
-                    <img src="path/to/e-commerce-screenshot3.jpg" alt="E-commerce Website Screenshot 3">
-                    <img src="path/to/e-commerce-screenshot4.jpg" alt="E-commerce Website Screenshot 4">
-                </div>
                 <h2>E-commerce Website (Django)</h2>
+                <div class="carousel">
+                    <img src="assets/ecommerce1.jpg" alt="E-Commerce Screenshot 1" class="active">
+                    <img src="assets/ecommerce2.jpg" alt="E-Commerce Screenshot 2">
+                    <img src="assets/ecommerce3.jpg" alt="E-Commerce Screenshot 3">
+                    <img src="assets/ecommerce4.jpg" alt="E-Commerce Screenshot 4">
+                </div>
                 <p>Description: A basic e-commerce platform where users can browse products, add them to a cart, and make purchases. Admins can manage products and orders.</p>
                 <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
             </div>
@@ -92,5 +91,30 @@
             </li>
         </ul>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const carousels = document.querySelectorAll(".carousel");
+            
+            carousels.forEach(carousel => {
+                let currentIndex = 0;
+                const images = carousel.querySelectorAll("img");
+                const totalImages = images.length;
+                
+                // Show the first image
+                images[currentIndex].classList.add("active");
+                
+                // Function to change the image
+                const showNextImage = () => {
+                    images[currentIndex].classList.remove("active");
+                    currentIndex = (currentIndex + 1) % totalImages;
+                    images[currentIndex].classList.add("active");
+                };
+                
+                // Add click event listener to the carousel
+                carousel.addEventListener("click", showNextImage);
+            });
+        });
+    </script>
 </body>
 </html>
