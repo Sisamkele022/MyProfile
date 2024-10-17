@@ -297,6 +297,16 @@ section.home {
     border-radius: 5px;
 }
 
+.contact-section {
+    background-image: url('assets/background.jpg'); /* Ensure the path is correct */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    padding: 50px; /* Adjust padding as necessary */
+    color: white; /* Set text color for better visibility */
+    text-align: center; /* Center text for a better layout */
+}
+
+
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
@@ -331,17 +341,17 @@ section.home {
 }
 
 .projects h1 {
-    margin-top: -5%;
     margin-bottom: 30px;
     font-size: 2rem;
     color: #022b46;
 }
 
 .projects-grid {
+    margin-top: -3%;
     display: flex; /* Use flexbox to align items horizontally */
-    gap: 20px;
+    gap: 80px;
     overflow-x: auto; /* Allow horizontal scrolling for smaller screens */
-    padding: 10px;
+    padding: 50px;
     max-width: 100%;
 }
 
