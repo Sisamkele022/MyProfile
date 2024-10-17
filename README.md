@@ -1,5 +1,10 @@
 MyProfile Project
+
+
+
 Welcome to the MyProfile project! This website is a simple, clean, and professional portfolio designed to showcase my skills, experience, and background to potential employers and collaborators. It provides an interactive and straightforward way to get to know me and explore my work.
+
+
 
 Table of Contents
 Project Overview
