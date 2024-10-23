@@ -12,8 +12,7 @@
             padding: 0;
             background-color: #f0f4f8; /* Light background */
             display: flex;
-            flex-direction: column;
-            align-items: flex-start; /* Align content to the left */
+            flex-direction: column; /* Stack header and container */
         }
 
         header {
@@ -42,75 +41,34 @@
         }
 
         .contact-container {
+            display: flex;
             padding: 20px;
-            text-align: center;
-            background-color: #e3f2fd; /* Light background for contrast */
             width: 100%; /* Full width */
+            justify-content: space-between; /* Space between form and contact cards */
         }
 
-        .contact-container h1 {
+        .contact-left {
+            flex: 1; /* Take half of the space */
+            padding-right: 20px; /* Padding to separate from right side */
+        }
+
+        .contact-left h1 {
             font-size: 2.5rem;
             color: #022b46;
         }
 
-        .contact-container p {
+        .contact-left p {
             font-size: 1.2rem;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             color: #1d4158;
         }
 
-        .contact-methods {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .contact-card {
-            background-color: #ffffff;
-            border: 1px solid #1d4158;
-            border-radius: 10px;
-            width: 200px;
-            margin: 10px;
-            padding: 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: #1d4158; /* Icon color */
-            margin-bottom: 10px;
-            animation: bounce 2s infinite; /* Animation effect */
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
         .contact-form {
-            margin-top: 40px;
+            margin-top: 20px;
             padding: 20px;
             background-color: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px; /* Limit form width */
-            margin-left: auto; /* Center form */
-            margin-right: auto; /* Center form */
         }
 
         .form-group {
@@ -146,10 +104,19 @@
             font-size: 1.2rem;
             cursor: pointer;
             transition: background-color 0.3s;
+            width: 100%; /* Full width for button */
         }
 
         .submit-button:hover {
             background-color: #022b46; /* Darker shade on hover */
+        }
+
+        .contact-left .geeky-quote {
+            margin-top: 20px; /* Space before quote */
+            font-size: 1.5rem; /* Increased size for emphasis */
+            color: #1d4158; /* Consistent color */
+            text-align: center; /* Center quote text */
+            font-style: italic; /* Italics for quote */
         }
 
         footer {
@@ -193,48 +160,35 @@
     </header>
 
     <div class="contact-container">
-        <h1>Contact Me</h1>
-        <p>Feel free to reach out via any of the platforms below:</p>
-        <div class="contact-methods">
-            <div class="contact-card">
-                <i class="fas fa-envelope"></i>
-                <h3>Email</h3>
-                <p>example@example.com</p>
+        <div class="contact-left">
+            <h1>Contact Me</h1>
+            <p>Feel free to reach out via the form below:</p>
+            <div class="contact-form">
+                <h2>Send Me a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-tag"></i>
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <i class="fas fa-comment-dots"></i>
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
             </div>
-            <div class="contact-card">
-                <i class="fab fa-linkedin"></i>
-                <h3>LinkedIn</h3>
-                <p>/in/sisamkele-vava-606052282</p>
-            </div>
-            <div class="contact-card">
-                <i class="fab fa-github"></i>
-                <h3>GitHub</h3>
-                <p>/Sisamkele022</p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-phone"></i>
-                <h3>Phone</h3>
-                <p>(+27) 123 456 7890</p>
-            </div>
+            <p class="geeky-quote">"I love coding! It's like solving a puzzle, but with more caffeine."</p>
         </div>
-
-        <div class="contact-form">
-            <h2>Send Me a Message</h2>
-            <form>
-                <div class="form-group">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-envelope"></i>
-                    <input type="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <i class="fas fa-comment-dots"></i>
-                    <textarea placeholder="Your Message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="submit-button">Send Message</button>
-            </form>
+        <div class="contact-right">
+            <!-- Right side can be used for future content or left empty -->
         </div>
     </div>
 
