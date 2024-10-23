@@ -170,10 +170,11 @@
             border-right: 2px solid #022b46;
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+            animation: typing 6s steps(60, end), blink 0.75s step-end infinite;
             color: #022b46; /* Text color */
             line-height: 1.5; /* Space between lines */
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+            margin: 0; /* Remove margin */
         }
 
         @keyframes typing {
@@ -256,8 +257,7 @@
 
     <div class="contact-container">
         <div class="contact-left">
-            <h1>Contact Me</h1>
-            <p>Feel free to reach out via the form below:</p>
+            <h1>Hit Me Up!</h1>
             <div class="contact-form">
                 <h2>Send Me a Message</h2>
                 <form>
@@ -270,7 +270,7 @@
                         <input type="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <i class="fas fa-info"></i>
+                        <i class="fas fa-comment"></i>
                         <input type="text" placeholder="Subject" required>
                     </div>
                     <div class="form-group">
@@ -282,7 +282,11 @@
             </div>
         </div>
         <div class="contact-right">
-            <div class="typing-effect">✍️ I'm here to help you!</div>
+            <div class="typing-effect">
+                <i class="fas fa-hands-helping"></i>  I'm here to help you!<br>
+                <i class="fas fa-users"></i> I am here to collaborate with you!<br>
+                <i class="fas fa-link"></i> I am here to connect with you!
+            </div>
         </div>
     </div>
 
