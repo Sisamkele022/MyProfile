@@ -20,7 +20,6 @@
             color: white;
             padding: 10px;
             width: 100%;
-            position: relative;
         }
 
         nav ul {
@@ -44,7 +43,12 @@
             display: flex;
             padding: 20px;
             width: 100%; /* Full width */
-            justify-content: space-between; /* Space between form and contact cards */
+            justify-content: space-between; /* Space between form and message */
+            max-width: 1200px; /* Limit max width */
+            margin: 0 auto; /* Center the container */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Added shadow to the container */
+            border-radius: 10px; /* Rounded corners */
+            background-color: #ffffff; /* White background for the container */
         }
 
         .contact-left {
@@ -72,9 +76,10 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin */
             display: flex;
             align-items: center;
+            position: relative; /* Added for positioning icons */
         }
 
         .form-group i {
@@ -89,6 +94,12 @@
             border: 1px solid #1d4158;
             border-radius: 5px;
             font-size: 1rem;
+            transition: box-shadow 0.3s; /* Transition for shadow effect */
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            box-shadow: 0 0 5px rgba(0, 33, 112, 0.5); /* Shadow on focus */
+            outline: none; /* Remove default outline */
         }
 
         .form-group textarea {
@@ -103,20 +114,47 @@
             padding: 10px 20px;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, box-shadow 0.3s; /* Transition for button */
             width: 100%; /* Full width for button */
         }
 
         .submit-button:hover {
             background-color: #022b46; /* Darker shade on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
         }
 
-        .contact-left .geeky-quote {
-            margin-top: 20px; /* Space before quote */
-            font-size: 1.5rem; /* Increased size for emphasis */
-            color: #1d4158; /* Consistent color */
-            text-align: center; /* Center quote text */
-            font-style: italic; /* Italics for quote */
+        .contact-right {
+            flex: 1; /* Take half of the space */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the typing text */
+            text-align: center;
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', Courier, monospace; /* Monospace font */
+            font-size: 1.8em; /* Adjusted font size */
+            border-right: 2px solid #022b46;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+            color: #022b46; /* Text color */
+            line-height: 1.5; /* Space between lines */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
         }
 
         footer {
@@ -124,8 +162,6 @@
             color: white;
             text-align: center;
             padding: 20px;
-            position: relative;
-            bottom: 0;
             width: 100%;
         }
 
@@ -185,10 +221,13 @@
                     <button type="submit" class="submit-button">Send Message</button>
                 </form>
             </div>
-            <p class="geeky-quote">"I love coding! It's like solving a puzzle, but with more caffeine."</p>
         </div>
         <div class="contact-right">
-            <!-- Right side can be used for future content or left empty -->
+            <div class="typing-effect">
+                Do you like what you see,<br>
+                interested in working together?<br>
+                Let's Connect.
+            </div>
         </div>
     </div>
 
