@@ -7,7 +7,137 @@
     <title>Home | My Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=0.5">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+            color: #022b46;
+            overflow: hidden;
+        }
+
+        header {
+            background-color: #1d4158;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .home {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .left-side {
+            margin-right: 20px;
+        }
+
+        .profile-pic {
+            border-radius: 50%;
+            width: 200px;
+            height: auto;
+            border: 5px solid #022b46;
+            animation: scaleUp 1.5s infinite alternate;
+        }
+
+        .right-side {
+            text-align: left;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #1d4158;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ecf0f1;
+            color: #1d4158;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1d4158;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleUp {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        .typing-effect {
+            font-size: 2em;
+            border-right: 2px solid #022b46;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(20, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 20em; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,13 +153,13 @@
     </header>
 
     <main>
-        <h1 class="name-title">Sisamkele Vava</h1>
+        <h1 class="name-title">Greetings, Earthlings! 👾 Welcome to my Code Oasis!</h1>
         <section class="home">
             <div class="left-side">
                 <img src="assets/profile.jpg" alt="A professional photo of Sisamkele Vava" class="profile-pic">
             </div>
             <div class="right-side">
-                <h2>Junior Full Stack Software Developer 💻</h2>
+                <h2 class="typing-effect">My name is Sisamkele Vava 👨‍💻</h2>
                 <div class="buttons">
                     <button onclick="window.location.href='about.html'" class="button">Get To Know Me 🌟</button>
                     <button onclick="window.location.href='contact.html'" class="button">Hire Me 💼</button>
@@ -44,17 +174,17 @@
         <ul>
             <li>
                 <a href="https://twitter.com/SisamkeleVava" target="_blank">
-                    <i class="fab fa-twitter"></i> <!-- Font Awesome Twitter icon -->
+                    <i class="fab fa-twitter"></i>
                 </a>
             </li>
             <li>
                 <a href="https://linkedin.com/in/sisamkele-vava-606052282" target="_blank">
-                    <i class="fab fa-linkedin"></i> <!-- Font Awesome LinkedIn icon -->
+                    <i class="fab fa-linkedin"></i>
                 </a>
             </li>
             <li>
                 <a href="https://github.com/Sisamkele022" target="_blank">
-                    <i class="fab fa-github"></i> <!-- Font Awesome GitHub icon -->
+                    <i class="fab fa-github"></i>
                 </a>
             </li>
         </ul>
