@@ -3,12 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Sisamkele Vava</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Contact Me</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8; /* Light background */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
+        }
+
+        header {
+            background-color: #1d4158; /* Darker header */
+            color: white;
+            padding: 10px;
+            width: 100%;
+            position: relative;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Aligns links to the right */
+        }
+
+        nav ul li {
+            margin-left: 20px; /* Adjust margin for right alignment */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-container {
+            padding: 20px;
+            text-align: center;
+            background-color: #e3f2fd; /* Light background for contrast */
+            width: 100%; /* Full width */
+        }
+
+        .contact-container h1 {
+            font-size: 2.5rem;
+            color: #022b46;
+        }
+
+        .contact-container p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: #1d4158;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background-color: #ffffff;
+            border: 1px solid #1d4158;
+            border-radius: 10px;
+            width: 200px;
+            margin: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: #1d4158; /* Icon color */
+            margin-bottom: 10px;
+            animation: bounce 2s infinite; /* Animation effect */
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .contact-form {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 600px; /* Limit form width */
+            margin-left: auto; /* Center form */
+            margin-right: auto; /* Center form */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-group i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1d4158;
+        }
+
+        .form-group input, .form-group textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #1d4158;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #1d4158;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #022b46; /* Darker shade on hover */
+        }
+
+        footer {
+            background-color: #1d4158;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer ul li {
+            margin: 0 10px;
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-
     <header>
         <nav>
             <ul>
@@ -21,30 +192,51 @@
         </nav>
     </header>
 
-    <section class="contact-section">
-        <h2>Hit Me Up!</h2>
-        <p>If you have any questions, or you want to collaborate feel free to reach out. I’d love to hear from you!</p>
+    <div class="contact-container">
+        <h1>Contact Me</h1>
+        <p>Feel free to reach out via any of the platforms below:</p>
+        <div class="contact-methods">
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <p>example@example.com</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <p>/in/sisamkele-vava-606052282</p>
+            </div>
+            <div class="contact-card">
+                <i class="fab fa-github"></i>
+                <h3>GitHub</h3>
+                <p>/Sisamkele022</p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h3>Phone</h3>
+                <p>(+27) 123 456 7890</p>
+            </div>
+        </div>
 
-        <form class="contact-form" action="submit_contact.php" method="POST">
-            <div class="form-group">
-                <label for="name">Full Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email Address :</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="6" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-    </section>
+        <div class="contact-form">
+            <h2>Send Me a Message</h2>
+            <form>
+                <div class="form-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <i class="fas fa-comment-dots"></i>
+                    <textarea placeholder="Your Message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-button">Send Message</button>
+            </form>
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2024 Sisamkele Vava</p>
@@ -66,6 +258,5 @@
             </li>
         </ul>
     </footer>
-
 </body>
 </html>
