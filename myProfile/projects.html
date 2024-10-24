@@ -24,13 +24,13 @@
     <section class="projects">
         <h1>My Projects</h1>
         <div class="projects-grid">
-            <div class="project-item">
+            <div class="project-item big-project">
                 <h2>Expense Tracker App (React)</h2>
                 <div class="carousel">
-                    <img src="assets/EXPENSE11.png" alt="Screenshot 1" class="active">
-                    <img src="assets/EXPENSE22.png" alt="Screenshot 2">
-                    <img src="assets/EXPENSE33.png" alt="Screenshot 3">
-                    <img src="assets/EXPENSE44.png" alt="Screenshot 4">
+                    <img src="assets/EXPENSE1.png" alt="Screenshot 1" class="active">
+                    <img src="assets/EXPENSE2.png" alt="Screenshot 2">
+                    <img src="assets/EXPENSE3.png" alt="Screenshot 3">
+                    <img src="assets/EXPENSE4.png" alt="Screenshot 4">
                 </div>
                 <p>Description: A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. Includes user login and database storage.</p>
                 <a href="https://github.com/Sisamkele022/EXPENSETRACKERAPP" target="_blank">View on GitHub</a>
@@ -41,7 +41,6 @@
                     <img src="assets/TASK1.png" alt="Task App Screenshot 1" class="active">
                     <img src="assets/TASK2.png" alt="Task App Screenshot 2">
                     <img src="assets/TASK3.png" alt="Task App Screenshot 3">
-                    <IMG SRC="assets/TASK3.png" alt="Task App Screenshot 4">
                 </div>
                 <p>Description: A mobile app for managing tasks with features like adding tasks, setting deadlines, and receiving notifications.</p>
                 <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
@@ -94,29 +93,6 @@
         </ul>
     </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const carousels = document.querySelectorAll(".carousel");
-            
-            carousels.forEach(carousel => {
-                let currentIndex = 0;
-                const images = carousel.querySelectorAll("img");
-                const totalImages = images.length;
-                
-                // Show the first image
-                images[currentIndex].classList.add("active");
-                
-                // Function to change the image
-                const showNextImage = () => {
-                    images[currentIndex].classList.remove("active");
-                    currentIndex = (currentIndex + 1) % totalImages;
-                    images[currentIndex].classList.add("active");
-                };
-                
-                // Add click event listener to the carousel
-                carousel.addEventListener("click", showNextImage);
-            });
-        });
-    </script>
+    <script src="path/to/project.js"></script> <!-- Link to your project.js file -->
 </body>
 </html>
