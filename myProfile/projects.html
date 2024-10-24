@@ -7,6 +7,56 @@
     <title>Projects | My Profile</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .projects {
+            text-align: center;
+        }
+        .projects-grid {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .project-item {
+            position: absolute;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            width: 300px; /* Set a fixed width for project items */
+        }
+        .project-item.active {
+            opacity: 1;
+            z-index: 1; /* Bring the active project to the front */
+        }
+        .carousel img {
+            width: 100%; /* Ensure images fit within the project item */
+            border-radius: 8px;
+        }
+        .nav-arrow {
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .nav-arrow.left {
+            left: 10px;
+        }
+        .nav-arrow.right {
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,55 +72,64 @@
     </header>
 
     <section class="projects">
-        <h1>My Projects</h1>
-        <div class="projects-grid">
-            <div class="project-item big-project">
-                <h2>Expense Tracker App (React)</h2>
-                <div class="carousel">
-                    <img src="assets/EXPENSE1.png" alt="Screenshot 1" class="active">
-                    <img src="assets/EXPENSE2.png" alt="Screenshot 2">
-                    <img src="assets/EXPENSE3.png" alt="Screenshot 3">
-                    <img src="assets/EXPENSE4.png" alt="Screenshot 4">
-                </div>
-                <p>Description: A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. Includes user login and database storage.</p>
-                <a href="https://github.com/Sisamkele022/EXPENSETRACKERAPP" target="_blank">View on GitHub</a>
+    <h1>My Projects</h1>
+    <div class="featured-project">
+        <div class="featured-item">
+            <h2>Featured Project: Expense Tracker App (React)</h2>
+            <div class="carousel">
+                <img src="assets/EXPENSE1.png" alt="Screenshot 1" class="active">
+                <img src="assets/EXPENSE2.png" alt="Screenshot 2">
+                <img src="assets/EXPENSE3.png" alt="Screenshot 3">
+                <img src="assets/EXPENSE4.png" alt="Screenshot 4">
             </div>
-            <div class="project-item">
-                <h2>Task Management App (React Native)</h2>
-                <div class="carousel">
-                    <img src="assets/TASK1.png" alt="Task App Screenshot 1" class="active">
-                    <img src="assets/TASK2.png" alt="Task App Screenshot 2">
-                    <img src="assets/TASK3.png" alt="Task App Screenshot 3">
-                </div>
-                <p>Description: A mobile app for managing tasks with features like adding tasks, setting deadlines, and receiving notifications.</p>
-                <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
-            </div>
-            <div class="project-item">
-                <h2>E-Hailing Subscription App (Flutter)</h2>
-                <div class="carousel">
-                    <img src="assets/RIDE1.png" alt="App Screenshot 1" class="active">
-                    <img src="assets/RIDE2.png" alt="App Screenshot 2">
-                    <img src="assets/RIDE3.png" alt="App Screenshot 3">
-                    <img src="assets/RIDE4.png" alt="App Screenshot 4">
-                    <img src="assets/RIDE5.png" alt="App Screenshot 5">
-                    <img src="assets/RIDE6.png" alt="App Screenshot 6">
-                </div>
-                <p>Description: A mobile app for booking monthly rides with pickup and drop-off locations, allowing users to manage daily ride subscriptions and view fare estimates.</p>
-                <a href="https://gitlab.wethinkco.de/sivava022/submission-flutter-project" target="_blank">View on GitLab</a>
-            </div>
-            <div class="project-item">
-                <h2>E-commerce Website (Django)</h2>
-                <div class="carousel">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 1" class="active">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 2">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 3">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 4">
-                </div>
-                <p>Description: A basic e-commerce platform where users can browse products, add them to a cart, and make purchases. Admins can manage products and orders.</p>
-                <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
-            </div>
+            <p>Description: A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. Includes user login and database storage.</p>
+            <a href="https://github.com/Sisamkele022/EXPENSETRACKERAPP" target="_blank">View on GitHub</a>
         </div>
-    </section>
+    </div>
+    
+    <div class="projects-grid">
+        <div class="project-item">
+            <h2>Task Management App (React Native)</h2>
+            <div class="carousel">
+                <img src="assets/TASK1.png" alt="Task App Screenshot 1" class="active">
+                <img src="assets/TASK2.png" alt="Task App Screenshot 2">
+                <img src="assets/TASK3.png" alt="Task App Screenshot 3">
+            </div>
+            <p>Description: A mobile app for managing tasks with features like adding tasks, setting deadlines, and receiving notifications.</p>
+            <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
+        </div>
+        <div class="project-item">
+            <h2>E-Hailing Subscription App (Flutter)</h2>
+            <div class="carousel">
+                <img src="assets/RIDE1.png" alt="App Screenshot 1" class="active">
+                <img src="assets/RIDE2.png" alt="App Screenshot 2">
+                <img src="assets/RIDE3.png" alt="App Screenshot 3">
+                <img src="assets/RIDE4.png" alt="App Screenshot 4">
+                <img src="assets/RIDE5.png" alt="App Screenshot 5">
+                <img src="assets/RIDE6.png" alt="App Screenshot 6">
+            </div>
+            <p>Description: A mobile app for booking monthly rides with pickup and drop-off locations, allowing users to manage daily ride subscriptions and view fare estimates.</p>
+            <a href="https://gitlab.wethinkco.de/sivava022/submission-flutter-project" target="_blank">View on GitLab</a>
+        </div>
+        <div class="project-item">
+            <h2>E-commerce Website (Django)</h2>
+            <div class="carousel">
+                <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 1" class="active">
+                <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 2">
+                <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 3">
+                <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 4">
+            </div>
+            <p>Description: A basic e-commerce platform where users can browse products, add them to a cart, and make purchases. Admins can manage products and orders.</p>
+            <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
+        </div>
+    </div>
+    
+    <div class="navigation-arrows">
+        <button class="arrow left-arrow" id="prev">❮</button>
+        <button class="arrow right-arrow" id="next">❯</button>
+    </div>
+</section>
+
 
     <footer>
         <p>&copy; 2024 Sisamkele Vava</p>
@@ -93,6 +152,37 @@
         </ul>
     </footer>
 
-    <script src="path/to/project.js"></script> <!-- Link to your project.js file -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const projectItems = document.querySelectorAll(".project-item");
+            const prevButton = document.getElementById("prev");
+            const nextButton = document.getElementById("next");
+            let currentIndex = 0;
+
+            // Function to show the project based on currentIndex
+            const showProject = (index) => {
+                projectItems.forEach((item, i) => {
+                    item.classList.remove("active");
+                    if (i === index) {
+                        item.classList.add("active");
+                    }
+                });
+            };
+
+            // Event listeners for navigation buttons
+            prevButton.addEventListener("click", () => {
+                currentIndex = (currentIndex - 1 + projectItems.length) % projectItems.length;
+                showProject(currentIndex);
+            });
+
+            nextButton.addEventListener("click", () => {
+                currentIndex = (currentIndex + 1) % projectItems.length;
+                showProject(currentIndex);
+            });
+
+            // Show the first project initially
+            showProject(currentIndex);
+        });
+    </script>
 </body>
 </html>
