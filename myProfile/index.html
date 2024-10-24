@@ -12,7 +12,6 @@
             font-family: 'Courier New', Courier, monospace;
             background-color: #f0f8ff;
             color: #022b46;
-            overflow: auto;
         }
 
         header {
@@ -66,7 +65,6 @@
             height: auto;
             border: 5px solid #022b46;
             animation: scaleUp 1.5s infinite alternate;
-            box-shadow: 0 10px 30px rgba(27, 27, 48, 0.8); /* Updated shadow */
         }
 
         .right-side {
@@ -95,21 +93,10 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color: #1d4158;
+            background-color:  #1d4158;
             color: white;
             position: relative;
-            bottom: 0;
             width: 100%;
-        }
-
-        footer ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        footer ul li {
-            display: inline;
-            margin: 0 10px;
         }
 
         @keyframes fadeIn {
@@ -138,6 +125,59 @@
         @keyframes blink {
             50% { border-color: transparent; }
         }
+
+        .code-editor {
+            background-color: #022b46;
+            border-radius: 8px;
+            color: #f8f8f2;
+            font-family: 'Courier New', monospace;
+            margin: 20px 0;
+            padding: 15px;
+            position: relative;
+            max-width: 600px;
+            overflow-x: auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .editor-header {
+            background-color: #3c3c3c;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            color: #f8f8f2;
+            font-size: 14px;
+            padding: 8px;
+            position: absolute;
+            top: -32px;
+            width: calc(100% - 30px);
+            text-align: left;
+            left: 15px;
+        }
+
+        .file-name {
+            font-weight: bold;
+        }
+
+        .code-snippet {
+            font-size: 1em;
+            line-height: 1.5em;
+            white-space: pre;
+        }
+
+        .code-comment {
+            color: #75715e;
+        }
+
+        .code-keyword {
+            color: #66d9ef;
+        }
+
+        .code-function {
+            color: #a6e22e;
+        }
+
+        .code-string {
+            color: #e6db74;
+        }
     </style>
 </head>
 <body>
@@ -154,16 +194,39 @@
     </header>
 
     <main>
-        <h1 class="name-title">Greetings, Earthlings! 👾 Welcome to my Code Oasis!</h1>
+        <h1 class="name-title">
+            Greetings, Earthlings! 
+            <img src="assets/monster.gif" alt="Monster GIF" style="width: 40px; height: auto; vertical-align: middle;">
+            Welcome to my Code Oasis!
+        </h1>
+        
         <section class="home">
             <div class="left-side">
                 <img src="assets/profile.jpg" alt="A professional photo of Sisamkele Vava" class="profile-pic">
             </div>
             <div class="right-side">
                 <h2 class="typing-effect">My name is Sisamkele Vava 👨‍💻</h2>
+                <!-- Python code snippet starts here -->
+                <div class="code-editor">
+                    <div class="editor-header">
+                        <span class="file-name">script.py</span>
+                    </div>
+                    <pre class="code-snippet">
+<span class="code-comment"># Python code snippet</span>
+<span class="code-keyword">def</span> <span class="code-function">introduction</span>():
+    <span class="code-string">print</span>(<span class="code-string">"Do you want to know me more?"</span>)
+    <span class="code-string">print</span>(<span class="code-string">"Or do you feel like we can work together?"</span>)
+    <span class="code-string">print</span>(<span class="code-string">"Or you want to have access to my CV?"</span>)
+    <span class="code-string">print</span>(<span class="code-string">"Click on the buttons below ⬇️"</span>)
+
+<span class="code-comment"># Call the function</span>
+introduction()
+                    </pre>
+                </div>
+                <!-- Python code snippet ends here -->
                 <div class="buttons">
                     <button onclick="window.location.href='about.html'" class="button">Get To Know Me 🌟</button>
-                    <button onclick="window.location.href='contact.html'" class="button">Hire Me 💼</button>
+                    <button onclick="window.location.href='contact.html'" class="button">Hire Me 💼     </button>
                     <button onclick="window.location.href='assets/Ms Sisamkele Vava Updated Curriculum Vitae.pdf'" class="button">Download CV 📄</button>
                 </div>
             </div>
