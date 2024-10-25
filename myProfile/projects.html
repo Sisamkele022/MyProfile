@@ -73,13 +73,14 @@
             border-radius: 10px;
             width: 300px; /* Fixed width for project items */
             height: auto; /* Adjust height as needed */
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s, z-index 0.3s;
             text-align: center;
         }
 
         .project-item:hover {
-            transform: scale(1.02);
-            box-shadow: 0px 0px 15px #022b46;
+            transform: scale(1.1); /* Scale up to 110% on hover */
+            box-shadow: 0px 0px 25px rgba(2, 43, 70, 0.8); /* Larger shadow */
+            z-index: 10; /* Bring to front */
         }
 
         /* Thumb Indexing Styles */
@@ -196,7 +197,6 @@
                 <h2 class="project-title">💰 Expense Tracker App (React)</h2>
                 <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
                 <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <p></p>
                 <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
 
@@ -212,7 +212,6 @@
                 <h2 class="project-title">✅ Task Management App (React Native)</h2>
                 <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
                 <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-
                 <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
 
@@ -220,19 +219,33 @@
             <div class="project-item">
                 <div class="project-tab">E-Hailing App</div>
                 <div class="project-images">
-                    <img src="assets/RIDE1.png" alt="E-Hailing 1" class="active">
-                    <img src="assets/RIDE2.png" alt="E-Hailing 2">
-                    <img src="assets/RIDE3.png" alt="E-Hailing 3">
-                    <img src="assets/RIDE4.png" alt="E-Hailing 4">
+                    <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
+                    <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
+                    <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
+                    <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
                 </div>
-                <h2 class="project-title">🚖 E-Hailing Subscription App (Flutter)</h2>
-                <p class="project-description">This app provides daily pick-up and drop-off services with flexible subscriptions, enabling users to manage and monitor their rides easily. 📅</p>
+                <h2 class="project-title">🚗 E-Hailing App (React Native)</h2>
+                <p class="project-description">This app provides users with an easy way to book rides, view their ride history, and manage subscriptions.💳 Users can book rides in advance and get notifications for upcoming rides.</p>
                 <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-
                 <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
 
             <!-- Project 4 -->
+            <div class="project-item">
+                <div class="project-tab">LMS System</div>
+                <div class="project-images">
+                    <img src="assets/LMS1.png" alt="LMS Screenshot 1" class="active">
+                    <img src="assets/LMS2.png" alt="LMS Screenshot 2">
+                    <img src="assets/LMS3.png" alt="LMS Screenshot 3">
+                    <img src="assets/LMS4.png" alt="LMS Screenshot 4">
+                </div>
+                <h2 class="project-title">📚 Learning Management System (LMS)</h2>
+                <p class="project-description">A platform for managing educational content and student progress, with features like quizzes, assignments, and tracking. 🌟 Users can engage with interactive materials and receive feedback.</p>
+                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+            </div>
+
+            <!-- Project  -->
             <div class="project-item">
                 <div class="project-tab">E-Commerce App</div>
                 <div class="project-images">
@@ -247,15 +260,16 @@
 
                 <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
+
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Sisamkele Vava. All rights reserved.</p>
+        <p>© 2024 Sisamkele Vava</p>
         <ul>
-            <li><a href="https://github.com/Sisamkele022"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/sisamkele-vava"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://twitter.com/SisamkeleVava"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/Sisamkele022" target="_blank">GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/sisamkele-vava" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:sisamkelevava@gmail.com">Email</a></li>
         </ul>
     </footer>
 </body>
