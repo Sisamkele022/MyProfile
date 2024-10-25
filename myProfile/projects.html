@@ -4,119 +4,259 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Projects | My Profile</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Projects | Sisamkele Vava</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+            color: #022b46;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1d4158;
+            padding: 10px;
+            color: white;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #022b46;
+        }
+
+        /* Project Grid Styles */
+        .projects {
+            display: flex; /* Flexbox for layout */
+            flex-direction: row; /* Align items in a row */
+            flex-wrap: wrap; /* Allow items to wrap onto the next line */
+            padding: 10px 0;
+            gap: 20px; /* Space between grid items */
+            justify-content: center; /* Center items in the row */
+        }
+
+        .project-item {
+            position: relative;
+            background-color: #f0f8ff;
+            padding: 20px;
+            border: 2px solid #1d4158;
+            border-radius: 10px;
+            width: 300px; /* Fixed width for project items */
+            height: auto; /* Adjust height as needed */
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .project-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 15px #022b46;
+        }
+
+        /* Thumb Indexing Styles */
+        .project-tab {
+            position: absolute;
+            top: 10px;
+            left: -30px;
+            background-color: #1d4158;
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            border-radius: 0 5px 5px 0;
+            writing-mode: vertical-lr;
+            text-orientation: mixed;
+            transition: background-color 0.3s;
+        }
+
+        .project-tab:hover {
+            background-color: #022b46;
+        }
+
+        /* Project Content Styling */
+        .project-images img {
+            width: 100%;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .project-images img.active {
+            display: block;
+        }
+
+        .github-button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #1d4158;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .github-button:hover {
+            background-color: #022b46;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #1d4158;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative; /* Changed to relative to prevent overlap */
+            width: 100%;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer ul li a {
+            color: white;
+            font-size: 1.5em;
+            transition: color 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .project-item {
+                width: 80%; /* Adjust width for smaller screens */
+            }
+
+            .project-tab {
+                left: -20px;
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="projects.html">Projects</a></li>
-                <li><a href="skills.html">Skills</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="about.html">📖 About</a></li>
+                <li><a href="projects.html">🛠️ Projects</a></li>
+                <li><a href="skills.html">🧠 Skills</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="projects">
-        <h1>My Projects</h1>
-        <div class="projects-grid">
+    <main>
+        <section class="projects">
+
+            <!-- Project 1 -->
             <div class="project-item">
-                <h2>Expense Tracker App (React)</h2>
-                <div class="carousel">
-                    <img src="assets/EXPENSE1.png" alt="Screenshot 1" class="active">
-                    <img src="assets/EXPENSE2.png" alt="Screenshot 2">
-                    <img src="assets/EXPENSE3.png" alt="Screenshot 3">
-                    <img src="assets/EXPENSE4.png" alt="Screenshot 4">
+                <div class="project-tab">Expense Tracker</div>
+                <div class="project-images">
+                    <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
+                    <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
+                    <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
+                    <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
                 </div>
-                <p>Description: A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. Includes user login and database storage.</p>
-                <a href="https://github.com/Sisamkele022/EXPENSETRACKERAPP" target="_blank">View on GitHub</a>
+                <h2 class="project-title">💰 Expense Tracker App (React)</h2>
+                <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
+                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+                <p></p>
+                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
+
+            <!-- Project 2 -->
             <div class="project-item">
-                <h2>Task Management App (React Native)</h2>
-                <div class="carousel">
-                    <img src="assets/TASK1.png" alt="Task App Screenshot 1" class="active">
-                    <img src="assets/TASK2.png" alt="Task App Screenshot 2">
-                    <img src="assets/TASK3.png" alt="Task App Screenshot 3">
-                    <IMG SRC="assets/TASK3.png" alt="Task App Screenshot 4">
+                <div class="project-tab">Task Management</div>
+                <div class="project-images">
+                    <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
+                    <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
+                    <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
+                    <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
                 </div>
-                <p>Description: A mobile app for managing tasks with features like adding tasks, setting deadlines, and receiving notifications.</p>
-                <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
+                <h2 class="project-title">✅ Task Management App (React Native)</h2>
+                <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
+                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+
+                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
+
+            <!-- Project 3 -->
             <div class="project-item">
-                <h2>E-Hailing Subscription App (Flutter)</h2>
-                <div class="carousel">
-                    <img src="assets/RIDE1.png" alt="App Screenshot 1" class="active">
-                    <img src="assets/RIDE2.png" alt="App Screenshot 2">
-                    <img src="assets/RIDE3.png" alt="App Screenshot 3">
-                    <img src="assets/RIDE4.png" alt="App Screenshot 4">
-                    <img src="assets/RIDE5.png" alt="App Screenshot 5">
-                    <img src="assets/RIDE6.png" alt="App Screenshot 6">
+                <div class="project-tab">E-Hailing App</div>
+                <div class="project-images">
+                    <img src="assets/RIDE1.png" alt="E-Hailing 1" class="active">
+                    <img src="assets/RIDE2.png" alt="E-Hailing 2">
+                    <img src="assets/RIDE3.png" alt="E-Hailing 3">
+                    <img src="assets/RIDE4.png" alt="E-Hailing 4">
                 </div>
-                <p>Description: A mobile app for booking monthly rides with pickup and drop-off locations, allowing users to manage daily ride subscriptions and view fare estimates.</p>
-                <a href="https://gitlab.wethinkco.de/sivava022/submission-flutter-project" target="_blank">View on GitLab</a>
+                <h2 class="project-title">🚖 E-Hailing Subscription App (Flutter)</h2>
+                <p class="project-description">This app provides daily pick-up and drop-off services with flexible subscriptions, enabling users to manage and monitor their rides easily. 📅</p>
+                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+
+                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
+
+            <!-- Project 4 -->
             <div class="project-item">
-                <h2>E-commerce Website (Django)</h2>
-                <div class="carousel">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 1" class="active">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 2">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 3">
-                    <img src="assets/ecommerce3-2.jpg" alt="E-Commerce Screenshot 4">
+                <div class="project-tab">E-Commerce App</div>
+                <div class="project-images">
+                    <img src="assets/ECOMMERCE1.png" alt="E-Commerce Screenshot 1" class="active">
+                    <img src="assets/ECOMMERCE2.png" alt="E-Commerce Screenshot 2">
+                    <img src="assets/ECOMMERCE3.png" alt="E-Commerce Screenshot 3">
+                    <img src="assets/ECOMMERCE4.png" alt="E-Commerce Screenshot 4">
                 </div>
-                <p>Description: A basic e-commerce platform where users can browse products, add them to a cart, and make purchases. Admins can manage products and orders.</p>
-                <a href="https://github.com/Sisamkele022" target="_blank">View on GitHub</a>
+                <h2 class="project-title">🛒 E-Commerce App (Django)</h2>
+                <p class="project-description">An e-commerce application that allows users to browse products, even promotions on the catalogue, add them to their cart, and make secure purchases. 🛒</p>
+                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+
+                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Sisamkele Vava</p>
+        <p>© 2024 Sisamkele Vava. All rights reserved.</p>
         <ul>
-            <li>
-                <a href="https://twitter.com/SisamkeleVava" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://linkedin.com/in/sisamkele-vava-606052282" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/Sisamkele022" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </li>
+            <li><a href="https://github.com/Sisamkele022"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/sisamkele-vava"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://twitter.com/SisamkeleVava"><i class="fab fa-twitter"></i></a></li>
         </ul>
     </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const carousels = document.querySelectorAll(".carousel");
-            
-            carousels.forEach(carousel => {
-                let currentIndex = 0;
-                const images = carousel.querySelectorAll("img");
-                const totalImages = images.length;
-                
-                // Show the first image
-                images[currentIndex].classList.add("active");
-                
-                // Function to change the image
-                const showNextImage = () => {
-                    images[currentIndex].classList.remove("active");
-                    currentIndex = (currentIndex + 1) % totalImages;
-                    images[currentIndex].classList.add("active");
-                };
-                
-                // Add click event listener to the carousel
-                carousel.addEventListener("click", showNextImage);
-            });
-        });
-    </script>
 </body>
 </html>
