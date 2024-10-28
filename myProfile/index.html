@@ -219,64 +219,39 @@
 <span class="code-keyword">def</span> <span class="code-function">introduction</span>():
     <span class="code-string">print</span>(<span class="code-string">"Do you want to know me more?"</span>)
     <span class="code-string">print</span>(<span class="code-string">"Or do you feel like we can work together?"</span>)
-    <span class="code-string">print</span>(<span class="code-string">"Just call my number!"</span>)
+    <span class="code-string">print</span>(<span class="code-string">"Or you want to have access to my CV?"</span>)
+    <span class="code-string">print</span>(<span class="code-string">"Click on the buttons below ⬇️"</span>)
 
 <span class="code-comment"># Call the function</span>
-<span class="code-function">introduction</span>()
+introduction()
                     </pre>
                 </div>
                 <!-- Python code snippet ends here -->
                 <div class="buttons">
-                    <button class="button">Contact Me!</button>
-                    <button class="button" onclick="toggleChatbot()">Chat with Me!</button>
+                    <button onclick="window.location.href='about.html'" class="button">Get To Know Me 🌟</button>
+                    <button onclick="window.location.href='contact.html'" class="button">Hire Me 💼     </button>
+                    <button onclick="window.location.href='assets/Ms Sisamkele Vava Updated Curriculum Vitae.pdf'" class="button">Download CV 📄</button>
+                </div>
+            </div>
+            <div class="chatbot-container">
+                <div class="chatbot-icon" onclick="toggleChatbot()">💬</div>
+                <div class="chatbot-window" id="chatbotWindow">
+                    <div class="chatbot-header">
+                        <span>CodeBot👨‍💻</span>
+                        <button class="close-btn" onclick="toggleChatbot()">×</button>
+                    </div>
+                    <div class="chatbot-body" id="chatbotBody"></div>
+                    <div class="chatbot-footer">
+                        <input type="text" id="userInput" placeholder="Type your message..." />
+                        <button onclick="sendMessage()">Send</button>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
-
+    <script src="script.js"></script>
     <footer>
         &copy; 2024 Sisamkele Vava. All rights reserved.
     </footer>
-
-    <!-- Chatbot HTML -->
-    <div class="chatbot" id="chatbot">
-        <div class="chatbot-header" onclick="toggleChatbot()">Chatbot</div>
-        <div class="chatbot-body">
-            <div class="messages" id="messages"></div>
-            <input type="text" id="chatbot-input" placeholder="Type your message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
-
-    <script>
-        function toggleChatbot() {
-            const chatbot = document.getElementById('chatbot');
-            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
-                chatbot.style.display = 'flex';
-            } else {
-                chatbot.style.display = 'none';
-            }
-        }
-
-        function sendMessage() {
-            const inputField = document.getElementById('chatbot-input');
-            const messageContainer = document.getElementById('messages');
-            const message = inputField.value;
-            if (message) {
-                const userMessage = document.createElement('div');
-                userMessage.textContent = 'You: ' + message;
-                messageContainer.appendChild(userMessage);
-                inputField.value = ''; // Clear the input field
-                
-                // Simulate a response from the chatbot
-                setTimeout(() => {
-                    const botMessage = document.createElement('div');
-                    botMessage.textContent = 'Bot: Hello! You said - "' + message + '"';
-                    messageContainer.appendChild(botMessage);
-                    messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll to the bottom
-                }, 1000);
-            }
-        }
-    </script>
 </body>
 </html>
