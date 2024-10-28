@@ -94,7 +94,7 @@
         footer {
             text-align: center;
             padding: 20px;
-            background-color:  #1d4158;
+            background-color: #1d4158;
             color: white;
             position: relative;
             width: 100%;
@@ -179,6 +179,71 @@
         .code-string {
             color: #e6db74;
         }
+
+        /* Chatbot Styles */
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background-color: #1d4158;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .chatbot-header {
+            padding: 10px;
+            background-color: #022b46;
+            color: white;
+            cursor: pointer;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .chatbot-body {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .messages {
+            flex-grow: 1;
+            margin-bottom: 10px;
+            color: #f8f8f2;
+        }
+
+        .messages div {
+            margin: 5px 0;
+        }
+
+        #chatbot-input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            flex-grow: 1;
+            margin-right: 5px;
+        }
+
+        button {
+            background-color: #66d9ef;
+            border: none;
+            color: #022b46;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #ecf0f1;
+            color: #022b46;
+        }
+        
     </style>
 </head>
 <body>
@@ -217,42 +282,64 @@
 <span class="code-keyword">def</span> <span class="code-function">introduction</span>():
     <span class="code-string">print</span>(<span class="code-string">"Do you want to know me more?"</span>)
     <span class="code-string">print</span>(<span class="code-string">"Or do you feel like we can work together?"</span>)
-    <span class="code-string">print</span>(<span class="code-string">"Or you want to have access to my CV?"</span>)
-    <span class="code-string">print</span>(<span class="code-string">"Click on the buttons below ⬇️"</span>)
+    <span class="code-string">print</span>(<span class="code-string">"Just call my number!"</span>)
 
 <span class="code-comment"># Call the function</span>
-introduction()
+<span class="code-function">introduction</span>()
                     </pre>
                 </div>
                 <!-- Python code snippet ends here -->
                 <div class="buttons">
-                    <button onclick="window.location.href='about.html'" class="button">Get To Know Me 🌟</button>
-                    <button onclick="window.location.href='contact.html'" class="button">Hire Me 💼     </button>
-                    <button onclick="window.location.href='assets/Ms Sisamkele Vava Updated Curriculum Vitae.pdf'" class="button">Download CV 📄</button>
+                    <button class="button">Contact Me!</button>
+                    <button class="button" onclick="toggleChatbot()">Chat with Me!</button>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Sisamkele Vava</p>
-        <ul>
-            <li>
-                <a href="https://twitter.com/SisamkeleVava" target="_blank">
-                    <i class="fab fa-twitter"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://linkedin.com/in/sisamkele-vava-606052282" target="_blank">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://github.com/Sisamkele022" target="_blank">
-                    <i class="fab fa-github"></i>
-                </a>
-            </li>
-        </ul>
+        &copy; 2024 Sisamkele Vava. All rights reserved.
     </footer>
+
+    <!-- Chatbot HTML -->
+    <div class="chatbot" id="chatbot">
+        <div class="chatbot-header" onclick="toggleChatbot()">Chatbot</div>
+        <div class="chatbot-body">
+            <div class="messages" id="messages"></div>
+            <input type="text" id="chatbot-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChatbot() {
+            const chatbot = document.getElementById('chatbot');
+            if (chatbot.style.display === 'none' || chatbot.style.display === '') {
+                chatbot.style.display = 'flex';
+            } else {
+                chatbot.style.display = 'none';
+            }
+        }
+
+        function sendMessage() {
+            const inputField = document.getElementById('chatbot-input');
+            const messageContainer = document.getElementById('messages');
+            const message = inputField.value;
+            if (message) {
+                const userMessage = document.createElement('div');
+                userMessage.textContent = 'You: ' + message;
+                messageContainer.appendChild(userMessage);
+                inputField.value = ''; // Clear the input field
+                
+                // Simulate a response from the chatbot
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.textContent = 'Bot: Hello! You said - "' + message + '"';
+                    messageContainer.appendChild(botMessage);
+                    messageContainer.scrollTop = messageContainer.scrollHeight; // Auto-scroll to the bottom
+                }, 1000);
+            }
+        }
+    </script>
 </body>
 </html>
