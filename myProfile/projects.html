@@ -25,6 +25,7 @@
         }
 
         nav ul {
+            text-align: RIGHT;
             list-style: none;
             padding: 0;
         }
@@ -42,6 +43,7 @@
         }
 
         nav ul li a:hover {
+            text-decoration: underline;
             color: #ecf0f1;
         }
 
@@ -55,17 +57,51 @@
             color: #022b46;
         }
 
+        /* Carousel Styles */
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            width: 100%; /* Adjust as needed */
+            max-width: 1900px; /* Maximum width for the carousel */
+            margin: 0 auto; /* Center the carousel */
+        }
+
+        .carousel-content {
+            display: flex;
+            transition: transform 0.3s ease; /* Smooth transition for scroll */
+        }
+
+        .arrow-left, .arrow-right {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10; /* Bring buttons to front */
+        }
+
+        .arrow-left {
+            left: 10px; /* Adjust as needed */
+        }
+
+        .arrow-right {
+            right: 10px; /* Adjust as needed */
+        }
+
         /* Project Grid Styles */
         .projects {
             display: flex; /* Flexbox for layout */
-            flex-direction: row; /* Align items in a row */
-            flex-wrap: wrap; /* Allow items to wrap onto the next line */
+            flex-direction: column; /* Column for carousel layout */
             padding: 10px 0;
-            gap: 20px; /* Space between grid items */
+            gap: 60px; /* Space between grid items */
             justify-content: center; /* Center items in the row */
         }
 
         .project-item {
+            margin: 90px;
             position: relative;
             background-color: #f0f8ff;
             padding: 20px;
@@ -73,7 +109,7 @@
             border-radius: 10px;
             width: 300px; /* Fixed width for project items */
             height: auto; /* Adjust height as needed */
-            transition: transform 0.3s, box-shadow 0.3s, z-index 0.3s;
+            transition: transform 0.3s, box-shadow 0.9s, z-index 0.3s;
             text-align: center;
         }
 
@@ -184,53 +220,55 @@
 
     <main>
         <section class="projects">
+            <div class="carousel-container">
+                <button class="arrow-left" onclick="scrollCarousel(-1)">&#10094;</button>
+                <div class="carousel-content">
+                    <!-- Project 1 -->
+                    <div class="project-item">
+                        <div class="project-tab">Expense Tracker</div>
+                        <div class="project-images">
+                            <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
+                            <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
+                            <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
+                            <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
+                        </div>
+                        <h2 class="project-title">💰 Expense Tracker App (React)</h2>
+                        <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
+                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                    </div>
 
-            <!-- Project 1 -->
-            <div class="project-item">
-                <div class="project-tab">Expense Tracker</div>
-                <div class="project-images">
-                    <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
-                    <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
-                    <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
-                    <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
-                </div>
-                <h2 class="project-title">💰 Expense Tracker App (React)</h2>
-                <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-            </div>
+                    <!-- Project 2 -->
+                    <div class="project-item">
+                        <div class="project-tab">Task Management</div>
+                        <div class="project-images">
+                            <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
+                            <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
+                            <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
+                            <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
+                        </div>
+                        <h2 class="project-title">✅ Task Management App (React Native)</h2>
+                        <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
+                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                    </div>
 
-            <!-- Project 2 -->
-            <div class="project-item">
-                <div class="project-tab">Task Management</div>
-                <div class="project-images">
-                    <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
-                    <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
-                    <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
-                    <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
-                </div>
-                <h2 class="project-title">✅ Task Management App (React Native)</h2>
-                <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-            </div>
+                    <!-- Project 3 -->
+                    <div class="project-item">
+                        <div class="project-tab">E-Hailing App</div>
+                        <div class="project-images">
+                            <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
+                            <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
+                            <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
+                            <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
+                        </div>
+                        <h2 class="project-title">🚕 E-Hailing App (Flutter)</h2>
+                        <p class="project-description">A subscription-based e-hailing service app that allows users to book rides for specified durations. Integrates location services and payment gateways for seamless transactions.</p>
+                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                    </div>
 
-            <!-- Project 3 -->
-            <div class="project-item">
-                <div class="project-tab">E-Hailing App</div>
-                <div class="project-images">
-                    <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
-                    <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
-                    <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
-                    <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
-                </div>
-                <h2 class="project-title">🚗 E-Hailing App (React Native)</h2>
-                <p class="project-description">This app provides users with an easy way to book rides, view their ride history, and manage subscriptions.💳 Users can book rides in advance and get notifications for upcoming rides.</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-            </div>
-
-            <!-- Project 4 -->
+                     <!-- Project 4 -->
             <div class="project-item">
                 <div class="project-tab">LMS System</div>
                 <div class="project-images">
@@ -260,16 +298,40 @@
 
                 <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
+                </div>
+                <button class="arrow-right" onclick="scrollCarousel(1)">&#10095;</button>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>© 2024 Sisamkele Vava</p>
+        <p>&copy; 2024 Sisamkele Vava. All rights reserved.</p>
         <ul>
             <li><a href="https://github.com/Sisamkele022" target="_blank">GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/sisamkele-vava" target="_blank">LinkedIn</a></li>
-            <li><a href="mailto:sisamkelevava@gmail.com">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/sisamkele-vava-9b84a0200/" target="_blank">LinkedIn</a></li>
+            <li><a href="mailto:sisamkele@example.com">Email</a></li>
         </ul>
     </footer>
+
+    <script>
+        let scrollPosition = 0;
+        const itemWidth = 400; // Adjust this width based on the .project-item width
+
+        function scrollCarousel(direction) {
+            const carousel = document.querySelector('.carousel-content');
+            const items = document.querySelectorAll('.project-item').length;
+
+            scrollPosition += direction;
+
+            if (scrollPosition < 0) {
+                scrollPosition = items - 1; // Loop to the last item
+            } else if (scrollPosition >= items) {
+                scrollPosition = 0; // Loop to the first item
+            }
+
+            // Scroll the carousel
+            carousel.style.transform = `translateX(-${scrollPosition * itemWidth}px)`;
+        }
+    </script>
 </body>
 </html>
