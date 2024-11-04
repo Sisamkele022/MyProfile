@@ -74,6 +74,6 @@ function generateResponse(userMessage) {
     } else if (lowerCaseMessage.includes('career goals') || lowerCaseMessage.includes('future plans')) {
         return 'My career goals involve advancing in software development, exploring AI-powered solutions, and working on impactful tech projects. I’m always open to learning and growing in my field.';
     } else {
-        return 'I’m not sure how to answer that, but feel free to contact me via email.';
+        return 'I’m not sure how to answer that, but feel free to contact me via email or via linkedin.';
     }
 }
