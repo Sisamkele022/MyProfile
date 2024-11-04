@@ -3,98 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Carousel</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for coding effect */
+            margin: 0;
+            padding: 0;
+            background-color: #e6f2f8; /* Light blue background */
+            display: flex;
+            flex-direction: column; /* Stack header and container */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        header {
+            background-color: #022b46; /* Dark header */
+            color: white;
+            padding: 10px;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Header shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Aligns links to the right */
+        }
+
+        nav ul li {
+            margin-left: 20px; /* Adjust margin for right alignment */
+            transition: transform 0.3s; /* Smooth hover effect */
+        }
+
+        nav ul li:hover {
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative; /* For animated underline */
+        }
+
+        nav ul li a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 0;
+            background: white;
+            transition: width 0.3s; /* Smooth underline effect */
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%; /* Underline appears on hover */
+        }
+
+        .contact-container {
+            display: flex;
+            padding: 40px;
+            width: 100%; /* Full width */
+            justify-content: space-between; /* Space between form and message */
+            max-width: 1200px; /* Limit max width */
+            margin: 0 auto; /* Center the container */
+            border-radius: 10px; /* Rounded corners */
+            background: linear-gradient(135deg, #ffffff, #d1e7ff); /* Gradient background */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow for the container */
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .contact-left {
+            flex: 1; /* Take half of the space */
+            padding-right: 20px; /* Padding to separate from right side */
+        }
+
+        .contact-left h1 {
+            font-size: 2.5rem;
+            color: #022b46;
+        }
+
+        .contact-left p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #1d4158;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s; /* Animation for the form */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Reduced margin */
+            display: flex;
+            align-items: center;
+            position: relative; /* Added for positioning icons */
+        }
+
+        .form-group i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1d4158;
+            transition: transform 0.3s; /* Animation on hover */
+        }
+
+        .form-group i:hover {
+            transform: rotate(360deg); /* Rotate icon on hover */
+        }
+
+        .form-group input, .form-group textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #1d4158;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: box-shadow 0.3s; /* Transition for shadow effect */
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            box-shadow: 0 0 5px rgba(2, 43, 70, 0.5); /* Shadow on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #1d4158;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transition for button */
+            width: 100%; /* Full width for button */
+        }
+
+        .submit-button:hover {
+            background-color: #022b46; /* Darker shade on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .contact-right {
+            flex: 1; /* Take half of the space */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the typing text */
+            text-align: center;
+            animation: slideIn 0.8s; /* Animation for the right side */
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', Courier, monospace; /* Monospace font */
+            font-size: 1.5em; /* Adjusted font size */
+            border-right: 2px solid #022b46;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 6s steps(60, end), blink 0.75s step-end infinite;
+            color: #022b46; /* Text color */
+            line-height: 1.5; /* Space between lines */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+            margin: 0; /* Remove margin */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {  
+                transform: translateX(100%); /* Slide from the right */
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        footer {
+            background-color: #022b46; /* Dark footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: relative; /* For positioning footer elements */
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer ul li {
+            margin: 0 10px;
+            transition: transform 0.3s; /* Smooth hover effect for footer links */
+        }
+
+        footer ul li:hover {
+            transform: scale(1.2); /* Scale effect on hover */
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem; /* Larger icon size */
+        }
+    </style>
 </head>
 <body>
-    <main>
-        <section class="projects">
-            <!-- Carousel Container -->
-            <div class="carousel">
-                <!-- Project 1 -->
-                <div class="project-item">
-                    <div class="project-tab">Expense Tracker</div>
-                    <div class="project-images">
-                        <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
-                        <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
-                        <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
-                        <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
-                    </div>
-                    <h2 class="project-title">💰 Expense Tracker App (React)</h2>
-                    <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
-                    <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                    <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                </div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="about.html">📖 About</a></li>
+                <li><a href="projects.html">🛠️ Projects</a></li>
+                <li><a href="skills.html">🧠 Skills</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-                <!-- Project 2 -->
-                <div class="project-item">
-                    <div class="project-tab">Task Management</div>
-                    <div class="project-images">
-                        <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
-                        <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
-                        <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
-                        <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
+    <div class="contact-container">
+        <div class="contact-left">
+            <h1>Hit Me Up!!!📞</h1>
+            <div class="contact-form">
+                <h2>Send Me a Message</h2>
+                <form>
+                    <div class="form-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Your Name" required>
                     </div>
-                    <h2 class="project-title">✅ Task Management App (React Native)</h2>
-                    <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
-                    <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                    <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-item">
-                    <div class="project-tab">E-Hailing App</div>
-                    <div class="project-images">
-                        <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
-                        <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
-                        <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
-                        <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
+                    <div class="form-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Your Email" required>
                     </div>
-                    <h2 class="project-title">🚗 E-Hailing App (React Native)</h2>
-                    <p class="project-description">This app provides users with an easy way to book rides, view their ride history, and manage subscriptions.💳 Users can book rides in advance and get notifications for upcoming rides.</p>
-                    <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                    <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-item">
-                    <div class="project-tab">LMS System</div>
-                    <div class="project-images">
-                        <img src="assets/LMS1.png" alt="LMS Screenshot 1" class="active">
-                        <img src="assets/LMS2.png" alt="LMS Screenshot 2">
-                        <img src="assets/LMS3.png" alt="LMS Screenshot 3">
-                        <img src="assets/LMS4.png" alt="LMS Screenshot 4">
+                    <div class="form-group">
+                        <i class="fas fa-comment"></i>
+                        <input type="text" placeholder="Subject" required>
                     </div>
-                    <h2 class="project-title">📚 Learning Management System (LMS)</h2>
-                    <p class="project-description">A platform for managing educational content and student progress, with features like quizzes, assignments, and tracking. 🌟 Users can engage with interactive materials and receive feedback.</p>
-                    <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                    <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-item">
-                    <div class="project-tab">E-Commerce App</div>
-                    <div class="project-images">
-                        <img src="assets/ECOMMERCE1.png" alt="E-Commerce Screenshot 1" class="active">
-                        <img src="assets/ECOMMERCE2.png" alt="E-Commerce Screenshot 2">
-                        <img src="assets/ECOMMERCE3.png" alt="E-Commerce Screenshot 3">
-                        <img src="assets/ECOMMERCE4.png" alt="E-Commerce Screenshot 4">
+                    <div class="form-group">
+                        <i class="fas fa-comment"></i>
+                        <textarea rows="7" placeholder="Your Message" required></textarea>
                     </div>
-                    <h2 class="project-title">🛒 E-Commerce App (Django)</h2>
-                    <p class="project-description">An e-commerce application that allows users to browse products, even promotions on the catalogue, add them to their cart, and make secure purchases. 🛒</p>
-                    <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                    <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
             </div>
-
-            <!-- Carousel Navigation -->
-            <div class="carousel-controls">
-                <button class="prev">❮</button>
-                <button class="next">❯</button>
+        </div>
+        <div class="contact-right">
+            <div class="typing-effect">
+                <i class="fas fa-hands-helping"></i>  I'm here to help you!<br>
+                <i class="fas fa-users"></i> I am here to collaborate with you!<br>
+                <i class="fas fa-link"></i> I am here to connect with you!
             </div>
-        </section>
-    </main>
+        </div>
+    </div>
 
-    <script src="script.js"></script> <!-- Link to your JS file -->
+    <footer>
+        <p>&copy; 2024 My Portfolio | Follow me on:</p>
+        <ul>
+            <li><a href="https://github.com" target="_blank" class="fab fa-github"></a></li>
+            <li><a href="https://linkedin.com" target="_blank" class="fab fa-linkedin"></a></li>
+            <li><a href="https://twitter.com" target="_blank" class="fab fa-twitter"></a></li>
+            <li><a href="https://instagram.com" target="_blank" class="fab fa-instagram"></a></li>
+        </ul>
+    </footer>
 </body>
 </html>
