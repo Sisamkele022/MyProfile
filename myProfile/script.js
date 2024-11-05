@@ -45,35 +45,37 @@ function addMessage(text, sender) {
     chatbotBody.scrollTop = chatbotBody.scrollHeight; // Scroll to the latest message
 }
 
-// Generate response function (basic response logic)
+// Generate response function (enhanced response logic with humor and emojis)
 function generateResponse(userMessage) {
     const lowerCaseMessage = userMessage.toLowerCase();
     
     if (lowerCaseMessage.includes('hi') || lowerCaseMessage.includes('hello')) {
-        return 'Hello! How can I help you today?';
+        return '👋 Hello! How can I sprinkle some magic on your day today? ✨';
     } else if (lowerCaseMessage.includes('how are you')) {
-        return 'I’m just a bunch of code, but I’m functioning perfectly. How can I assist you?';
+        return 'I’m doing great! Just living the code life! 😄 How can I assist you?';
     } else if (lowerCaseMessage.includes('freelancing') || lowerCaseMessage.includes('collaboration')) {
-        return 'I’m open for freelancing and collaboration. What kind of project do you have in mind?';
+        return 'I’m all ears! 👂💻 What kind of amazing project do you have brewing?';
     } else if (lowerCaseMessage.includes('services') || lowerCaseMessage.includes('skills')) {
-        return 'I specialize in full stack development, including technologies like JavaScript, React, Node.js, MongoDB, and .NET. I also have experience in mobile app development using React Native.';
+        return 'I’m a full-stack wizard! 🧙‍♂️✨ I dabble in JavaScript, React, Node.js, MongoDB, and .NET. Ready to conjure up something great together?';
     } else if (lowerCaseMessage.includes('experience') || lowerCaseMessage.includes('background')) {
-        return 'I have experience working on various projects, including e-hailing apps, learning management systems, and QA testing. I’ve also been involved in startups and internships where I gained valuable insights into software development and problem-solving.';
+        return 'Ah, my tale is filled with adventures in e-hailing apps, learning management systems, and QA testing! 🚀 I’ve gathered wisdom from startups and internships alike! What do you want to know?';
     } else if (lowerCaseMessage.includes('availability') || lowerCaseMessage.includes('available')) {
-        return 'I’m currently open to new opportunities, including contract work, freelance projects, and full-time positions.';
+        return 'I’m like a free spirit, ready for new quests! 🦋 Whether it’s contract work, freelancing, or full-time positions, I’m game! What do you have in mind?';
     } else if (lowerCaseMessage.includes('location') || lowerCaseMessage.includes('remote work')) {
-        return 'I’m based in Johannesburg, South Africa, but I’m open to remote work or relocation for the right opportunity.';
+        return 'I hail from sunny Johannesburg, South Africa! ☀️ But I’m open to remote adventures or relocating for the right quest! 🌍';
     } else if (lowerCaseMessage.includes('contact') || lowerCaseMessage.includes('email')) {
-        return 'You can reach me via email at sisamkelevava2@gmail.com, or connect with me on LinkedIn for further discussions.';
+        return 'You can shoot me an email at ✉️ <strong>sisamkelevava2@gmail.com</strong>. I’m also on LinkedIn if you want to connect! 🤝';
     } else if (lowerCaseMessage.includes('projects') || lowerCaseMessage.includes('portfolio')) {
-        return 'I’ve worked on several projects, including web and mobile applications. Feel free to check out my portfolio for more details on my past work.';
+        return 'I’ve crafted many digital wonders! 🛠️✨ Check out my portfolio to see the magic in action! 🎨';
     } else if (lowerCaseMessage.includes('languages') || lowerCaseMessage.includes('tech stack')) {
-        return 'I’m proficient in JavaScript, TypeScript, C#, HTML/CSS, SQL, and more. I also work with frameworks and libraries like React, Angular, Express.js, and .NET.';
+        return 'My tech stack is like a buffet! 🍽️ JavaScript, TypeScript, C#, HTML/CSS, SQL, and many more delicious options await! Which one tickles your fancy?';
     } else if (lowerCaseMessage.includes('rate') || lowerCaseMessage.includes('pricing')) {
-        return 'My rates are flexible and depend on the project scope. For freelancing, I usually discuss rates based on the complexity and timeline of the project.';
+        return 'My rates are like a chameleon—flexible and adaptable! 🦎 Let’s chat about your project, and I’ll whip up a price that suits us both! 💰';
     } else if (lowerCaseMessage.includes('career goals') || lowerCaseMessage.includes('future plans')) {
-        return 'My career goals involve advancing in software development, exploring AI-powered solutions, and working on impactful tech projects. I’m always open to learning and growing in my field.';
+        return 'I dream of conquering the software development realm, diving into AI adventures, and creating impactful tech! 🌟 What about you?';
+    } else if (lowerCaseMessage.includes('joke') || lowerCaseMessage.includes('funny')) {
+        return 'Why do programmers prefer dark mode? Because light attracts bugs! 🐛😂 Got any good ones to share?';
     } else {
-        return 'I’m not sure how to answer that, but feel free to contact me via email or via Linkedin.';
+        return '🤔 I’m not quite sure how to answer that, but I’d love to hear more! Feel free to contact me via email or connect on LinkedIn! 🤗';
     }
 }
