@@ -27,6 +27,7 @@ sendButton.addEventListener('click', () => {
         setTimeout(() => {
             const botResponse = generateResponse(userMessage);
             addMessage(botResponse, 'bot'); // Add the bot's message
+            speakText(botResponse); // Speak the bot's message
         }, 500);
     }
 });
@@ -40,9 +41,34 @@ chatbotIcon.addEventListener('click', () => {
 function addMessage(text, sender) {
     const messageElement = document.createElement('div');
     messageElement.classList.add('chatbot-message', sender);
-    messageElement.textContent = text;
+    messageElement.innerHTML = text; // Use innerHTML if text contains HTML (e.g., email with <strong>)
     chatbotBody.appendChild(messageElement);
     chatbotBody.scrollTop = chatbotBody.scrollHeight; // Scroll to the latest message
+}
+
+// Speak text function for Text-to-Speech
+function speakText(text) {
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    // Get all available voices
+    const voices = window.speechSynthesis.getVoices();
+
+    // Try to select a female voice, or default to the first available voice
+    const femaleVoice = voices.find(voice =>
+        voice.name.toLowerCase().includes("female") || // Many browsers label female voices
+        voice.lang === "en-US" ||                      // Fallback to English (US)
+        voice.name.includes("Google UK English Female") // Example of a specific name
+    );
+
+    // Set the selected voice if found, or default to the first available voice
+    utterance.voice = femaleVoice || voices[0];
+
+    // Optional settings for better control
+    utterance.rate = 1; // Adjust speech rate
+    utterance.pitch = 1; // Adjust pitch
+
+    // Speak the text
+    window.speechSynthesis.speak(utterance);
 }
 
 // Generate response function (enhanced response logic with humor and emojis)
