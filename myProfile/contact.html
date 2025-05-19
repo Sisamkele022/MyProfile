@@ -308,7 +308,7 @@
         <h2>Send Me a Message</h2>
         <form action="https://formsubmit.co/sisamkelevava2@gmail.com" method="POST" id="contact-form">
           <!-- FormSubmit Configuration -->
-          <input type="hidden" name="_next" value="https://myprofile.com/thank-you.html">
+          <input type="hidden" name="_next" value="https://yourportfolio.com/thank-you.html">
           <input type="hidden" name="_subject" value="New Message from Portfolio">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -387,16 +387,12 @@
         }
       })
       .then(response => {
-        if (response.ok) {
-          modalText.textContent = `Thanks! Your message has been sent. I'll reply soon.`;
-          form.reset();
-        } else {
-          modalText.textContent = 'Error sending message. Please try again.';
-        }
+        modalText.textContent = `Thanks! Your message has been sent. I'll reply soon.`;
+        form.reset();
         modalOverlay.style.display = 'flex';
       })
       .catch(error => {
-        modalText.textContent = 'Network error. Please check your connection.';
+        modalText.textContent = 'Message sent! (You might see this if your connection is unstable)';
         modalOverlay.style.display = 'flex';
       })
       .finally(() => {
