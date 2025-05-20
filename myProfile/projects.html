@@ -9,14 +9,15 @@
     <style>
         /* General Styles */
         body {
-            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f8ff;
             color: #022b46;
             margin: 0;
             padding: 0;
+            line-height: 1.6;
         }
 
-        /* Header Styles */
+        /* Header Styles (unchanged) */
         header {
             background-color: #1d4158;
             padding: 10px;
@@ -47,130 +48,164 @@
             color: #ecf0f1;
         }
 
-        /* Main Content Styles */
+        /* MAIN CONTENT REDESIGN */
         main {
-            padding: 10px;
+            padding: 40px 20px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         h1 {
             text-align: center;
             color: #022b46;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            position: relative;
         }
 
-        /* Carousel Styles */
-        .carousel-container {
+        h1:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #1d4158, #4a90e2);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Projects Grid Layout */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        /* Project Card Styling */
+        .project-card {
+            background: white;
+            border-radius: 12px;
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(29, 65, 88, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
-            width: 100%; /* Adjust as needed */
-            max-width: 2000px; /* Maximum width for the carousel */
-            margin: 0 auto; /* Center the carousel */
         }
 
-        .carousel-content {
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(29, 65, 88, 0.2);
+        }
+
+        .project-card-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .project-images {
             display: flex;
-            transition: transform 0.3s ease; /* Smooth transition for scroll */
+            width: 100%;
+            height: 100%;
         }
 
-        .arrow-left, .arrow-right {
-            position: absolute;
-            top: 30%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.8);
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            padding: 10px;
-            z-index: 10; /* Bring buttons to front */
-        }
-
-        .arrow-left {
-            left: 10px; /* Adjust as needed */
-        }
-
-        .arrow-right {
-            right: 10px; /* Adjust as needed */
-        }
-
-        /* Project Grid Styles */
-        .projects {
-            display: flex; /* Flexbox for layout */
-            flex-direction: column; /* Column for carousel layout */
-            padding: 10px 0;
-            gap: 100px; /* Space between grid items */
-            justify-content: center; /* Center items in the row */
-        }
-
-        .project-item {
-            margin: 30px;
-            position: relative;
-            background-color: #f0f8ff;
-            padding: 20px;
-            border: 2px solid #1d4158;
-            border-radius: 10px;
-            width: 300px; /* Fixed width for project items */
-            height: auto; /* Adjust height as needed */
-            transition: transform 0.3s, box-shadow 0.9s, z-index 0.3s;
-            text-align: center;
-        }
-
-        .project-item:hover {
-            transform: scale(1.1); /* Scale up to 110% on hover */
-            box-shadow: 0px 0px 25px rgba(2, 43, 70, 0.8); /* Larger shadow */
-            z-index: 10; /* Bring to front */
-        }
-
-        /* Thumb Indexing Styles */
-        .project-tab {
-            position: absolute;
-            top: 10px;
-            left: -30px;
-            background-color: #1d4158;
-            color: white;
-            padding: 10px;
-            font-weight: bold;
-            border-radius: 0 5px 5px 0;
-            writing-mode: vertical-lr;
-            text-orientation: mixed;
-            transition: background-color 0.3s;
-        }
-
-        .project-tab:hover {
-            background-color: #022b46;
-        }
-
-        /* Project Content Styling */
         .project-images img {
             width: 100%;
-            border-radius: 8px;
-            display: none;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .project-images img.active {
-            display: block;
+            opacity: 1;
+        }
+
+        .project-tech {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            z-index: 2;
+        }
+
+        .tech-tag {
+            background-color: rgba(29, 65, 88, 0.9);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-card-body {
+            padding: 20px;
+        }
+
+        .project-title {
+            margin: 0 0 10px;
+            color: #1d4158;
+            font-size: 1.4rem;
+        }
+
+        .project-description {
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+
+        .project-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .github-button {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
             background-color: #1d4158;
             color: white;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 6px;
             transition: background-color 0.3s;
+            font-size: 0.9rem;
         }
 
         .github-button:hover {
             background-color: #022b46;
         }
 
-        /* Footer Styles */
+        .image-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .image-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #cbd5e0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .image-dot.active {
+            background-color: #1d4158;
+        }
+
+        /* Footer Styles (unchanged) */
         footer {
             background-color: #1d4158;
             color: white;
             text-align: center;
             padding: 10px;
-            position: relative; /* Changed to relative to prevent overlap */
+            position: relative;
             width: 100%;
         }
 
@@ -193,270 +228,362 @@
         }
 
         /* Responsive Styles */
-        @media (max-width: 600px) {
-            .project-item {
-                width: 80%; /* Adjust width for smaller screens */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
             }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
 
-            .project-tab {
-                left: -20px;
-                font-size: 14px;
+        @media (max-width: 480px) {
+            .project-card-header {
+                height: 180px;
+            }
+            
+            .project-card-body {
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="about.html">📖 About</a></li>
-            <li><a href="projects.html">🛠️ Projects</a></li>
-            <li><a href="skills.html">🧠 Skills</a></li>
-            <li><a href="certificates.html">📜 Certificates</a></li> <!-- New link -->
-            <li><a href="geeky.html">🤓 Geeky</a></li> <!-- New link -->
-            <li><a href="contact.html">📞 Contact</a></li>
-        </ul>
-    </nav>
-</header>
-
+        <nav>
+            <ul>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="about.html">📖 About</a></li>
+                <li><a href="projects.html">🛠️ Projects</a></li>
+                <li><a href="skills.html">🧠 Skills</a></li>
+                <li><a href="certificates.html">📜 Certificates</a></li>
+                <li><a href="geeky.html">🤓 Geeky</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
-        <section class="projects">
-            <div class="carousel-container">
-                <button class="arrow-left" onclick="scrollCarousel(-1)">&#10094;</button>
-                <div class="carousel-content">
-                    <!-- Project 1 -->
-                    <div class="project-item">
-                        <div class="project-tab">Expense Tracker</div>
-                        <div class="project-images">
-                            <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
-                            <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
-                            <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
-                            <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
-                        </div>
-                        <h2 class="project-title">💰 Expense Tracker App (React)</h2>
-                        <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+        <h1>My Projects Portfolio</h1>
+        
+        <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/EXPENSE1.png" alt="Expense Tracker" class="active">
+                        <img src="assets/EXPENSE2.png" alt="Expense Tracker">
+                        <img src="assets/EXPENSE3.png" alt="Expense Tracker">
+                        <img src="assets/EXPENSE4.png" alt="Expense Tracker">
                     </div>
-
-                    <!-- Project 2 -->
-                    <div class="project-item">
-                        <div class="project-tab">Task Management</div>
-                        <div class="project-images">
-                            <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
-                            <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
-                            <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
-                            <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
-                        </div>
-                        <h2 class="project-title">✅ Task Management App (React Native)</h2>
-                        <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
                     </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-item">
-                        <div class="project-tab">E-Hailing App</div>
-                        <div class="project-images">
-                            <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
-                            <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
-                            <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
-                            <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
-                        </div>
-                        <h2 class="project-title">🚕 E-Hailing App (Flutter)</h2>
-                        <p class="project-description">A subscription-based e-hailing service app that allows users to book rides for specified durations. Integrates location services and payment gateways for seamless transactions.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                    </div>
-
-                     <!-- Project 4 -->
-            <div class="project-item">
-                <div class="project-tab">LMS System</div>
-                <div class="project-images">
-                    <img src="assets/LMS1.png" alt="LMS Screenshot 1" class="active">
-                    <img src="assets/LMS2.png" alt="LMS Screenshot 2">
-                    <img src="assets/LMS3.png" alt="LMS Screenshot 3">
-                    <img src="assets/LMS4.png" alt="LMS Screenshot 4">
                 </div>
-                <h2 class="project-title">📚 Learning Management System (LMS)</h2>
-                <p class="project-description">A platform for managing educational content and student progress, with features like quizzes, assignments, and tracking. 🌟 Users can engage with interactive materials and receive feedback.</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                <div class="project-card-body">
+                    <h3 class="project-title">💰 Expense Tracker App</h3>
+                    <p class="project-description">A full-stack financial management application with expense categorization, data visualization, and user authentication. Helps users track spending patterns with intuitive charts.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Project 5  -->
-            <div class="project-item">
-                <div class="project-tab">E-Commerce App</div>
-                <div class="project-images">
-                    <img src="assets/ECOMMERCE1.png" alt="E-Commerce Screenshot 1" class="active">
-                    <img src="assets/ECOMMERCE2.png" alt="E-Commerce Screenshot 2">
-                    <img src="assets/ECOMMERCE3.png" alt="E-Commerce Screenshot 3">
-                    <img src="assets/ECOMMERCE4.png" alt="E-Commerce Screenshot 4">
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/Task.png" alt="Task Management" class="active">
+                        <img src="assets/TASK1.png" alt="Task Management">
+                        <img src="assets/TASK2.png" alt="Task Management">
+                        <img src="assets/TASK1.png" alt="Task Management">
+                        <img src="assets/TASK2.png" alt="Task Management">
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Push Notifications</span>
+                    </div>
                 </div>
-                <h2 class="project-title">🛒 E-Commerce App (Django)</h2>
-                <p class="project-description">An e-commerce application that allows users to browse products, even promotions on the catalogue, add them to their cart, and make secure purchases. 🛒</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                <div class="project-card-body">
+                    <h3 class="project-title">✅ Task Management App</h3>
+                    <p class="project-description">Mobile productivity app featuring task organization, deadline tracking, and notification reminders. Designed to help users stay organized and meet their daily goals.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/RIDE1.png" alt="E-Hailing App" class="active">
+                        <img src="assets/RIDE2.png" alt="E-Hailing App">
+                        <img src="assets/RIDE3.png" alt="E-Hailing App">
+                        <img src="assets/RIDE4.png" alt="E-Hailing App">
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Google Maps API</span>
+                        <span class="tech-tag">Stripe</span>
+                    </div>
+                </div>
+                <div class="project-card-body">
+                    <h3 class="project-title">🚕 E-Hailing Service App</h3>
+                    <p class="project-description">Subscription-based ride-hailing platform with real-time tracking, duration-based bookings, and secure payment processing. Optimized for both riders and drivers.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/LMS1.png" alt="LMS" class="active">
+                        <img src="assets/LMS2.png" alt="LMS">
+                        <img src="assets/LMS3.png" alt="LMS">
+                        <img src="assets/LMS4.png" alt="LMS">
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">REST API</span>
+                    </div>
+                </div>
+                <div class="project-card-body">
+                    <h3 class="project-title">📚 Learning Management System</h3>
+                    <p class="project-description">Comprehensive educational platform with course management, interactive quizzes, assignment submission, and progress tracking for both students and instructors.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/ECOMMERCE1.png" alt="E-Commerce" class="active">
+                        <img src="assets/ECOMMERCE2.png" alt="E-Commerce">
+                        <img src="assets/ECOMMERCE3.png" alt="E-Commerce">
+                        <img src="assets/ECOMMERCE3.png" alt="E-Commerce">
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-card-body">
+                    <h3 class="project-title">🛒 E-Commerce Platform</h3>
+                    <p class="project-description">Feature-rich online store with product catalog, shopping cart, user reviews, and secure checkout. Includes admin dashboard for inventory and order management.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/todo/Woman.png" alt="Women To Do App" class="active">
+                        <img src="assets/todo/Woman1.png" alt="Women To Do App" class="active">
+                        <img src="assets/todo/Woman2.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman3.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman4.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman5.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman6.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman7.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman8.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman9.png" alt="Women To Do App">
+                        <img src="assets/todo/Woman10.png" alt="Women To Do App">
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="project-card-body">
+                    <h3 class="project-title">👩‍💼 Women To Do App</h3>
+                    <p class="project-description">
+                        A productivity and task management app designed to empower women. Includes features like task creation, reminders, priority tags, collaboration, and user authentication. Built using React for the frontend and Node.js with MongoDB for the backend.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
 
             <!-- Project 6 -->
-                    <div class="project-item">
-                        <div class="project-tab">Expense Tracker</div>
-                        <div class="project-images">
-                            <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
-                            <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
-                            <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
-                            <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
-                        </div>
-                        <h2 class="project-title">💰 Expense Tracker App (React)</h2>
-                        <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/bank/Screenshot (137).png" alt="Bank System" class="active">
+                        <img src="assets/bank/Screenshot (138).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (139).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (140).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (141).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (142).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (143).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (144).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (145).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (146).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (147).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (148).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (149).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (150).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (151).png" alt="Bank System">
+                        <img src="assets/bank/Screenshot (152).png" alt="Bank System">
                     </div>
-
-                    <!-- Project 7 -->
-                    <div class="project-item">
-                        <div class="project-tab">Task Management</div>
-                        <div class="project-images">
-                            <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
-                            <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
-                            <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
-                            <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
-                        </div>
-                        <h2 class="project-title">✅ Task Management App (React Native)</h2>
-                        <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                    <div class="project-tech">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">Spring Boot</span>
+                        <span class="tech-tag">MySQL</span>
                     </div>
-
-                    <!-- Project 8 -->
-                    <div class="project-item">
-                        <div class="project-tab">E-Hailing App</div>
-                        <div class="project-images">
-                            <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
-                            <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
-                            <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
-                            <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
-                        </div>
-                        <h2 class="project-title">🚕 E-Hailing App (Flutter)</h2>
-                        <p class="project-description">A subscription-based e-hailing service app that allows users to book rides for specified durations. Integrates location services and payment gateways for seamless transactions.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-                    </div>
-
-                     <!-- Project 9 -->
-            <div class="project-item">
-                <div class="project-tab">LMS System</div>
-                <div class="project-images">
-                    <img src="assets/LMS1.png" alt="LMS Screenshot 1" class="active">
-                    <img src="assets/LMS2.png" alt="LMS Screenshot 2">
-                    <img src="assets/LMS3.png" alt="LMS Screenshot 3">
-                    <img src="assets/LMS4.png" alt="LMS Screenshot 4">
                 </div>
-                <h2 class="project-title">📚 Learning Management System (LMS)</h2>
-                <p class="project-description">A platform for managing educational content and student progress, with features like quizzes, assignments, and tracking. 🌟 Users can engage with interactive materials and receive feedback.</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                <div class="project-card-body">
+                    <h3 class="project-title">🏦 Bank Management System</h3>
+                    <p class="project-description">Secure banking application with account management, transaction processing, and reporting features. Implements role-based access for customers and bank staff.</p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Project 10  -->
-            <div class="project-item">
-                <div class="project-tab">E-Commerce App</div>
-                <div class="project-images">
-                    <img src="assets/ECOMMERCE1.png" alt="E-Commerce Screenshot 1" class="active">
-                    <img src="assets/ECOMMERCE2.png" alt="E-Commerce Screenshot 2">
-                    <img src="assets/ECOMMERCE3.png" alt="E-Commerce Screenshot 3">
-                    <img src="assets/ECOMMERCE4.png" alt="E-Commerce Screenshot 4">
-                </div>
-                <h2 class="project-title">🛒 E-Commerce App (Django)</h2>
-                <p class="project-description">An e-commerce application that allows users to browse products, even promotions on the catalogue, add them to their cart, and make secure purchases. 🛒</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-            </div>
-
-            <!-- Project 11 -->
-                    <div class="project-item">
-                        <div class="project-tab">Expense Tracker</div>
-                        <div class="project-images">
-                            <img src="assets/EXPENSE1.png" alt="Expense Tracker Screenshot 1" class="active">
-                            <img src="assets/EXPENSE2.png" alt="Expense Tracker Screenshot 2">
-                            <img src="assets/EXPENSE3.png" alt="Expense Tracker Screenshot 3">
-                            <img src="assets/EXPENSE4.png" alt="Expense Tracker Screenshot 4">
-                        </div>
-                        <h2 class="project-title">💰 Expense Tracker App (React)</h2>
-                        <p class="project-description">A full-stack app where users can track daily expenses, categorize them, and visualize their spending with charts. 📊 Includes user login and database storage.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+            <!-- Project 7 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/QUOTE1.png" alt="Quote Generator App" class="active">
+                        <img src="assets/QUOTE1.png" alt="Quote Generator App">
+                        <img src="assets/QUOTE1.png" alt="Quote Generator App">
+                        <img src="assets/QUOTE1.png" alt="Quote Generator App">
                     </div>
-
-                    <!-- Project 12 -->
-                    <div class="project-item">
-                        <div class="project-tab">Task Management</div>
-                        <div class="project-images">
-                            <img src="assets/TASK1.png" alt="Task Management Screenshot 1" class="active">
-                            <img src="assets/TASK2.png" alt="Task Management Screenshot 2">
-                            <img src="assets/TASK3.png" alt="Task Management Screenshot 3">
-                            <img src="assets/TASK4.png" alt="Task Management Screenshot 4">
-                        </div>
-                        <h2 class="project-title">✅ Task Management App (React Native)</h2>
-                        <p class="project-description">This is a mobile application for managing tasks with features like adding tasks, setting deadlines, and receiving notifications⏰. Developed to assist with productivity.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
+                    <div class="project-tech">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
                     </div>
-
-                    <!-- Project 13 -->
-                    <div class="project-item">
-                        <div class="project-tab">E-Hailing App</div>
-                        <div class="project-images">
-                            <img src="assets/RIDE1.png" alt="E-Hailing App Screenshot 1" class="active">
-                            <img src="assets/RIDE2.png" alt="E-Hailing App Screenshot 2">
-                            <img src="assets/RIDE3.png" alt="E-Hailing App Screenshot 3">
-                            <img src="assets/RIDE4.png" alt="E-Hailing App Screenshot 4">
+                </div>
+                <div class="project-card-body">
+                    <h3 class="project-title">💬 Quote Generator App</h3>
+                    <p class="project-description">
+                        A simple and elegant quote generator app that displays random inspirational quotes with the click of a button. Allows users to copy or tweet quotes directly. Built using vanilla JavaScript, HTML, and CSS for smooth, responsive interaction.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
                         </div>
-                        <h2 class="project-title">🚕 E-Hailing App (Flutter)</h2>
-                        <p class="project-description">A subscription-based e-hailing service app that allows users to book rides for specified durations. Integrates location services and payment gateways for seamless transactions.</p>
-                        <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
                     </div>
-
-                     <!-- Project 14 -->
-            <div class="project-item">
-                <div class="project-tab">LMS System</div>
-                <div class="project-images">
-                    <img src="assets/LMS1.png" alt="LMS Screenshot 1" class="active">
-                    <img src="assets/LMS2.png" alt="LMS Screenshot 2">
-                    <img src="assets/LMS3.png" alt="LMS Screenshot 3">
-                    <img src="assets/LMS4.png" alt="LMS Screenshot 4">
                 </div>
-                <h2 class="project-title">📚 Learning Management System (LMS)</h2>
-                <p class="project-description">A platform for managing educational content and student progress, with features like quizzes, assignments, and tracking. 🌟 Users can engage with interactive materials and receive feedback.</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
             </div>
 
-            <!-- Project 15  -->
-            <div class="project-item">
-                <div class="project-tab">E-Commerce App</div>
-                <div class="project-images">
-                    <img src="assets/ECOMMERCE1.png" alt="E-Commerce Screenshot 1" class="active">
-                    <img src="assets/ECOMMERCE2.png" alt="E-Commerce Screenshot 2">
-                    <img src="assets/ECOMMERCE3.png" alt="E-Commerce Screenshot 3">
-                    <img src="assets/ECOMMERCE4.png" alt="E-Commerce Screenshot 4">
+            <!-- Project 4 -->
+            <div class="project-card">
+                <div class="project-card-header">
+                    <div class="project-images">
+                        <img src="assets/WEATHER.png" alt="Weather App" class="active">
+                        <img src="assets/WEATHER.png" alt="Weather App">
+                        <img src="assets/WEATHER.png" alt="Weather App">
+                        <img src="assets/WEATHER.png" alt="Weather App">
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">OpenWeather API</span>
+                    </div>
                 </div>
-                <h2 class="project-title">🛒 E-Commerce App (Django)</h2>
-                <p class="project-description">An e-commerce application that allows users to browse products, even promotions on the catalogue, add them to their cart, and make secure purchases. 🛒</p>
-                <p class="project-description">To view this project screenshots keep tapping on the picture above. You can also view the code structure below ⬇️ </p>
-
-                <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">🔗 View on GitHub</a>
-            </div>
+                <div class="project-card-body">
+                    <h3 class="project-title">☀️ Weather App</h3>
+                    <p class="project-description">
+                        A modern weather application that provides current weather data, forecasts, and location-based suggestions. Integrates with the OpenWeatherMap API and offers real-time updates in a responsive, user-friendly interface using React.
+                    </p>
+                    <div class="project-actions">
+                        <a href="https://github.com/Sisamkele022" target="_blank" class="github-button">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <div class="image-controls">
+                            <div class="image-dot active" data-index="0"></div>
+                            <div class="image-dot" data-index="1"></div>
+                            <div class="image-dot" data-index="2"></div>
+                            <div class="image-dot" data-index="3"></div>
+                        </div>
+                    </div>
                 </div>
-                <button class="arrow-right" onclick="scrollCarousel(1)">&#10095;</button>
             </div>
-        </section>
+        </div>
     </main>
 
     <footer>
@@ -468,25 +595,53 @@
             <li><a href="https://www.instagram.com/sisamkelevava2/" target="_blank" class="fab fa-instagram"></a></li>
         </ul>
     </footer>
+
     <script>
-        let scrollPosition = 0;
-        const itemWidth = 150; // Adjust this width based on the .project-item width
-
-        function scrollCarousel(direction) {
-            const carousel = document.querySelector('.carousel-content');
-            const items = document.querySelectorAll('.project-item').length;
-
-            scrollPosition += direction;
-
-            if (scrollPosition < 0) {
-                scrollPosition = items - 1; // Loop to the last item
-            } else if (scrollPosition >= items) {
-                scrollPosition = 0; // Loop to the first item
-            }
-
-            // Scroll the carousel
-            carousel.style.transform = `translateX(-${scrollPosition * itemWidth}px)`;
-        }
+        // Image carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const projects = document.querySelectorAll('.project-card');
+            
+            projects.forEach(project => {
+                const images = project.querySelectorAll('.project-images img');
+                const dots = project.querySelectorAll('.image-dot');
+                let currentIndex = 0;
+                
+                // Show first image by default
+                if (images.length > 0) {
+                    images[0].classList.add('active');
+                    dots[0].classList.add('active');
+                }
+                
+                // Dot click functionality
+                dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        // Remove active classes
+                        images.forEach(img => img.classList.remove('active'));
+                        dots.forEach(d => d.classList.remove('active'));
+                        
+                        // Add active class to clicked dot and corresponding image
+                        images[index].classList.add('active');
+                        dot.classList.add('active');
+                        currentIndex = index;
+                    });
+                });
+                
+                // Auto-rotate images every 5 seconds
+                if (images.length > 1) {
+                    setInterval(() => {
+                        currentIndex = (currentIndex + 1) % images.length;
+                        
+                        // Remove active classes
+                        images.forEach(img => img.classList.remove('active'));
+                        dots.forEach(d => d.classList.remove('active'));
+                        
+                        // Add active class to next image and dot
+                        images[currentIndex].classList.add('active');
+                        dots[currentIndex].classList.add('active');
+                    }, 5000);
+                }
+            });
+        });
     </script>
 </body>
 </html>
