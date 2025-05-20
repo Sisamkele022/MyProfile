@@ -1,0 +1,236 @@
+<style>
+        body {
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for coding effect */
+            margin: 0;
+            padding: 0;
+            background-color: #e6f2f8; /* Light blue background */
+            display: flex;
+            flex-direction: column; /* Stack header and container */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        header {
+            background-color: #022b46; /* Dark header */
+            color: white;
+            padding: 10px;
+            width: 100%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Header shadow */
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: flex-end; /* Aligns links to the right */
+        }
+
+        nav ul li {
+            margin-left: 20px; /* Adjust margin for right alignment */
+            transition: transform 0.3s; /* Smooth hover effect */
+        }
+
+        nav ul li:hover {
+            transform: scale(1.1); /* Scale effect on hover */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            position: relative; /* For animated underline */
+        }
+
+        nav ul li a::after {
+            content: '';
+            display: block;
+            height: 2px;
+            width: 0;
+            background: white;
+            transition: width 0.3s; /* Smooth underline effect */
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%; /* Underline appears on hover */
+        }
+
+        .contact-container {
+            display: flex;
+            padding: 40px;
+            width: 100%; /* Full width */
+            justify-content: space-between; /* Space between form and message */
+            max-width: 1200px; /* Limit max width */
+            margin: 0 auto; /* Center the container */
+            border-radius: 10px; /* Rounded corners */
+            background: linear-gradient(135deg, #ffffff, #d1e7ff); /* Gradient background */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow for the container */
+            overflow: hidden; /* Prevent content overflow */
+        }
+
+        .contact-left {
+            flex: 1; /* Take half of the space */
+            padding-right: 20px; /* Padding to separate from right side */
+        }
+
+        .contact-left h1 {
+            font-size: 2.5rem;
+            color: #022b46;
+        }
+
+        .contact-left p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #1d4158;
+        }
+
+        .contact-form {
+            margin-top: -70px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s; /* Animation for the form */
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Reduced margin */
+            display: flex;
+            align-items: center;
+            position: relative; /* Added for positioning icons */
+        }
+
+        .form-group i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+            color: #1d4158;
+            transition: transform 0.3s; /* Animation on hover */
+        }
+
+        .form-group i:hover {
+            transform: rotate(360deg); /* Rotate icon on hover */
+        }
+
+        .form-group input, .form-group textarea {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #1d4158;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: box-shadow 0.3s; /* Transition for shadow effect */
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            box-shadow: 0 0 5px rgba(2, 43, 70, 0.5); /* Shadow on focus */
+            outline: none; /* Remove default outline */
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #1d4158;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transition for button */
+            width: 100%; /* Full width for button */
+        }
+
+        .submit-button:hover {
+            background-color: #022b46; /* Darker shade on hover */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+            transform: translateY(-2px); /* Lift effect on hover */
+        }
+
+        .contact-right {
+            flex: 1; /* Take half of the space */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the typing text */
+            text-align: center;
+            animation: slideIn 0.8s; /* Animation for the right side */
+        }
+
+        .typing-effect {
+            font-family: 'Courier New', Courier, monospace; /* Monospace font */
+            font-size: 1.5em; /* Adjusted font size */
+            border-right: 2px solid #022b46;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 6s steps(60, end), blink 0.75s step-end infinite;
+            color: #022b46; /* Text color */
+            line-height: 1.5; /* Space between lines */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+            margin: 0; /* Remove margin */
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            from {  
+                transform: translateX(100%); /* Slide from the right */
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        footer {
+            background-color: #022b46; /* Dark footer */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            position: relative; /* For positioning footer elements */
+        }
+
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        footer ul li {
+            margin: 0 10px;
+            transition: transform 0.3s; /* Smooth hover effect for footer links */
+        }
+
+        footer ul li:hover {
+            transform: scale(1.2); /* Scale effect on hover */
+        }
+
+        footer ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem; /* Larger icon size */
+        }
+    </style>

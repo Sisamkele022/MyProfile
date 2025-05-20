@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Certificates | My Profile</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f0f8ff;
+            color: #022b46;
+        }
+        
+
+        header {
+            background-color: #1d4158;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            animation: fadeInDown 1s ease-out forwards;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ecf0f1;
+        }
+
+        h2 {
+            text-align: center;
+            animation: fadeInUp 2s ease-out;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            color: #34495e;
+        }
+
+        .about {
+            padding: 20px;
+            animation: fadeInUp 1.5s ease-in-out;
+            transform-origin: center;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 900px;
+            text-align: center;
+            animation: zoomIn 2s ease-in;
+        }
+
+        .about p a {
+            color: #1d4158;
+            font-weight: bold;
+            text-decoration: none;
+            border-bottom: 2px solid #1d4158;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .about p a:hover {
+            color: #ec407a;
+            border-bottom-color: #ec407a;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .info-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px auto;
+            width: 80%;
+            animation: slideInLeft 1.5s ease-out;
+        }
+
+        .box {
+            background-color: #ecf0f1;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin: 20px;
+            width: 40%;
+            min-width: 300px;
+            transform: perspective(1000px) rotateY(0deg);
+            transition: transform 0.6s, background-color 0.3s;
+            cursor: pointer;
+            animation: flipInY 1.5s ease-out;
+        }
+
+        .box:hover {
+            transform: perspective(1000px) rotateY(10deg) scale(1.05);
+            background-color: #819099;
+        }
+
+        .box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .box ul li {
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1d4158;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            animation: bounceIn 2s;
+        }
+
+        footer ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes flipInY {
+            from {
+                transform: perspective(1000px) rotateY(90deg);
+                opacity: 0;
+            }
+            to {
+                transform: perspective(1000px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.5;
+            }
+            70% {
+                transform: scale(0.9);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="about.html">📖 About</a></li>
+                <li><a href="projects.html">🛠️ Projects</a></li>
+                <li><a href="skills.html">🧠 Skills</a></li>
+                <li><a href="certificates.html">📜 Certificates</a></li>
+                <li><a href="geeky.html">🤓 Geeky</a></li>
+                <li><a href="contact.html">📞 Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about">
+        <h2>Certificates</h2>
+        <p>Here's a collection of certificates I've earned throughout my academic and professional journey 🎓✨.</p>
+
+        <div class="info-container">
+            <!-- Certificate 1 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Software Development - WeThinkCode_</h3>
+                <img src="assets/wethinkcode.png" alt="WeThinkCode_ Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Dec 2023</p>
+                <p>A rigorous hands-on program focused on full stack software development and agile teamwork. Built several real-world applications.</p>
+            </div>
+
+            <!-- Certificate 2 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> JavaScript Algorithms & Data Structures - freeCodeCamp</h3>
+                <img src="assets/freecodecamp.png" alt="FreeCodeCamp Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Nov 2022</p>
+                <p>Completed 300+ hours of interactive lessons and challenges in JavaScript, including recursion, OOP, and ES6.</p>
+            </div>
+
+            <!-- Certificate 3 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Responsive Web Design - freeCodeCamp</h3>
+                <img src="assets/freecodecamp.png" alt="FreeCodeCamp Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Sep 2022</p>
+                <p>Covered modern HTML5, CSS3, Flexbox, and Grid. Built multiple projects demonstrating mobile-first responsive design principles.</p>
+            </div>
+
+            <!-- Certificate 4 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Python for Everybody - Coursera</h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Jan 2023</p>
+                <p>Learned foundational programming in Python including loops, data structures, and file handling.</p>
+            </div>
+            <!-- Certificate 5 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Basic System Programming on IBM Z - IBM</h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: May 2025</p>
+                <p>Learned fundamental programming on IBM Z, how to submit and view JCL output, describing the use of applications such as CICS, IMS and db2 on z/OS. </p>
+            </div>
+
+            <!-- Certificate 6 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Getting Started on Mainframe with z/OS Commands and Panels - IBM</h3>
+                <img src="assets/IBM.png" alt="IBM Logo"" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: May 2025</p>
+                <p>Learnt how to review the main concepts of z/OS, loggig on to TSO and start ISPF/PDF, navigating through ISPF/PDF dialogs and use the basic ISPF./PDF functions and the ISPF Editor.</p>
+            </div>
+
+            <!-- Certificate 7 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Introduction to Agile Development and Scrum - IBM </h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: May 2025</p>
+                <p>I learned to apply Agile and Scrum practices to plan, track, and deliver better software efficiently.</p>
+            </div>
+
+            <!-- Certificate 8 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Career Essentials in Project Management by Microsoft and LinkedIn - Microsoft</h3>
+                <img src="assets/microsoft2.jpeg" alt="Microsoft Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Mar 2025</p>
+                <p>A rigorous hands-on program focused on project management.</p>
+            </div>
+            <!-- Certificate 9 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> IBM COBOL Basic Testing and Debbugging - IBM & LearnQuest</h3>
+                <img src="assets/learnquest.png" alt="LearnQuest Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Mar 2025</p>
+                <p>A rigorous hands-on program focused on describing COBOL runtime errors, file status codes and other different common COBOL errors.  </p>
+            </div>
+
+            <!-- Certificate 10 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> IBM COBOL Data and File Management - IBM </h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Mar 2025</p>
+                <p>I learnt how to manage data and files using COBOL, including working with file types, file handling techniques, and data structures commonly used in COBOL applications.</p>
+            </div>
+
+            <!-- Certificate 11 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> IBM COBOL Software Development Practices - IBM</h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Mar 2025 </p>
+                <p>I learned best practices for COBOL software development, including structured programming, modular code design, effective debugging, and maintaining readable, efficient, and reliable COBOL programs.</p>
+            </div>
+
+            <!-- Certificate 12 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> IBM COBOL Software Development Process - IBM</h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Mar 2025</p>
+                <p>I learned about the COBOL software development process, including requirements gathering, program design, coding, testing, and maintenance—ensuring structured, efficient, and maintainable COBOL applications throughout the development lifecycle.</p>
+            </div>
+
+            <!-- Certificate 13 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Introduction to Enterprise Computing - IBM</h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Mar 2025 </p>
+                <p>I learned how enterprise systems like mainframes support large-scale, reliable business operations.</p>
+            </div>
+
+            <!-- Certificate 14 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> IBM COBOL Basics - IBM</h3>
+                <img src="assets/IBM.png" alt="IBM Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Feb 2025 </p>
+                <p>I learned the fundamentals of COBOL programming, including its syntax, structure, and how to write simple programs for business applications.</p>
+            </div>
+
+            <!-- Certificate 15 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> IBM COBOL Core - IBM & LearnQuest</h3>
+                <img src="assets/learnquest.png" alt="LearnQuest Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Feb 2025 </p>
+                <p>I learned core COBOL programming concepts, including data types, control structures, file handling, and writing structured, efficient COBOL programs for enterprise systems.</p>
+            </div>
+
+            <!-- Certificate 16 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> Project Management Foundations - LinkedIn</h3>
+                <img src="assets/linkedin.png" alt="LinkedIn Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Feb 2025 </p>
+                <p>I gained a solid understanding of project management basics, such as defining objectives, controlling scope, scheduling, resource management, and guiding teams to achieve project success.</p>
+            </div>
+
+            <!-- Certificate 17 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> SheCodes Basic Add-on - SheCodes</h3>
+                <img src="assets/shecodes.png" alt="SheCodes Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Feb 2025 </p>
+                <p>Introduction to Web Development</p>
+            </div>
+
+            <!-- Certificate 18 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> SheCodes Plus - SheCodes</h3>
+                <img src="assets/shecodes.png" alt="SheCodes Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Feb 2025 </p>
+                <p>I learned best practices for web development.</p>
+            </div>
+
+            <!-- Certificate 19 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> SheCodes Plus AI - SheCodes</h3>
+                <img src="assets/shecodes.png" alt="SheCodes Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Feb 2025 </p>
+                <p>Introduction to Artificial Intelligence</p>
+            </div>
+
+            <!-- Certificate 20 -->
+            <div class="box">
+                <h3><i class="fas fa-certificate"></i> SheCodes Basics - SheCodes</h3>
+                <img src="assets/shecodes.png" alt="SheCodes Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Jan 2025 </p>
+                <p>Introduction to Coding</p>
+            </div>
+
+            <!-- Certificate 21 -->
+            <div class="box" style="text-align: center;">
+                <h3><i class="fas fa-certificate"></i> Linux Commands & Shell Scripting Essentials V2 - Coursera</h3>
+                <img src="assets/coursera.jpeg" alt="Coursera Logo" style="width:100px; height:auto; margin: 10px auto; display: block;">
+                <p>Issued: Jan 2025</p>
+                <p>I learned essential Linux and shell scripting skills for data engineering, including file management, scripting, and task scheduling.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio | Follow me on:</p>
+        <ul>
+            <li><a href="https://github.com/Sisamkele022" target="_blank" class="fab fa-github"></a></li>
+            <li><a href="https://www.linkedin.com/in/sisamkele-vava-606052282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="fab fa-linkedin"></a></li>
+            <li><a href="https://x.com/sisamk85117" target="_blank" class="fab fa-twitter"></a></li>
+            <li><a href="https://www.instagram.com/sisamkelevava2/" target="_blank" class="fab fa-instagram"></a></li>
+        </ul>
+    </footer>
+</body>
+</html>

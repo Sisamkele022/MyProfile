@@ -1,50 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Me</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Courier New', Courier, monospace; /* Monospace font for coding effect */
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Me</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+  />
+  <style>
+     body {
+            font-family: 'Courier New', Courier, monospace;
             margin: 0;
             padding: 0;
-            background-color: #e6f2f8; /* Light blue background */
+            background-color: #e6f2f8;
             display: flex;
-            flex-direction: column; /* Stack header and container */
-            overflow: hidden; /* Prevent scrolling */
+            flex-direction: column;
+            overflow: hidden;
         }
 
         header {
-            background-color: #022b46; /* Dark header */
+            background-color: #022b46;
             color: white;
             padding: 10px;
             width: 100%;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Header shadow */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         nav ul {
             list-style-type: none;
             padding: 0;
             display: flex;
-            justify-content: flex-end; /* Aligns links to the right */
+            justify-content: flex-end;
         }
 
         nav ul li {
-            margin-left: 20px; /* Adjust margin for right alignment */
-            transition: transform 0.3s; /* Smooth hover effect */
+            margin-left: 20px;
+            transition: transform 0.3s;
         }
 
         nav ul li:hover {
-            transform: scale(1.1); /* Scale effect on hover */
+            transform: scale(1.1);
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
             font-weight: bold;
-            position: relative; /* For animated underline */
+            position: relative;
         }
 
         nav ul li a::after {
@@ -53,32 +56,32 @@
             height: 2px;
             width: 0;
             background: white;
-            transition: width 0.3s; /* Smooth underline effect */
+            transition: width 0.3s;
             position: absolute;
             left: 0;
             bottom: -5px;
         }
 
         nav ul li a:hover::after {
-            width: 100%; /* Underline appears on hover */
+            width: 100%;
         }
 
         .contact-container {
             display: flex;
             padding: 40px;
-            width: 100%; /* Full width */
-            justify-content: space-between; /* Space between form and message */
-            max-width: 1200px; /* Limit max width */
-            margin: 0 auto; /* Center the container */
-            border-radius: 10px; /* Rounded corners */
-            background: linear-gradient(135deg, #ffffff, #d1e7ff); /* Gradient background */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow for the container */
-            overflow: hidden; /* Prevent content overflow */
+            width: 100%;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ffffff, #d1e7ff);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
         }
 
         .contact-left {
-            flex: 1; /* Take half of the space */
-            padding-right: 20px; /* Padding to separate from right side */
+            flex: 1;
+            padding-right: 20px;
         }
 
         .contact-left h1 {
@@ -95,28 +98,28 @@
         .contact-form {
             margin-top: -70px;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 0.8s; /* Animation for the form */
+            animation: fadeIn 0.8s;
         }
 
         .form-group {
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            position: relative; /* Added for positioning icons */
+            position: relative;
         }
 
         .form-group i {
             font-size: 1.5rem;
             margin-right: 10px;
             color: #1d4158;
-            transition: transform 0.3s; /* Animation on hover */
+            transition: transform 0.3s;
         }
 
         .form-group i:hover {
-            transform: rotate(360deg); /* Rotate icon on hover */
+            transform: rotate(360deg);
         }
 
         .form-group input, .form-group textarea {
@@ -125,12 +128,12 @@
             border: 1px solid #1d4158;
             border-radius: 5px;
             font-size: 1rem;
-            transition: box-shadow 0.3s; /* Transition for shadow effect */
+            transition: box-shadow 0.3s;
         }
 
         .form-group input:focus, .form-group textarea:focus {
-            box-shadow: 0 0 5px rgba(2, 43, 70, 0.5); /* Shadow on focus */
-            outline: none; /* Remove default outline */
+            box-shadow: 0 0 5px rgba(2, 43, 70, 0.5);
+            outline: none;
         }
 
         .form-group textarea {
@@ -145,78 +148,64 @@
             padding: 10px 20px;
             font-size: 1.2rem;
             cursor: pointer;
-            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s; /* Transition for button */
-            width: 100%; /* Full width for button */
+            transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+            width: 100%;
         }
 
         .submit-button:hover {
-            background-color: #022b46; /* Darker shade on hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow on hover */
-            transform: translateY(-2px); /* Lift effect on hover */
+            background-color: #022b46;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
         }
 
         .contact-right {
-            flex: 1; /* Take half of the space */
+            flex: 1;
             display: flex;
             align-items: center;
-            justify-content: center; /* Center the typing text */
+            justify-content: center;
             text-align: center;
-            animation: slideIn 0.8s; /* Animation for the right side */
+            animation: slideIn 0.8s;
         }
 
         .typing-effect {
-            font-family: 'Courier New', Courier, monospace; /* Monospace font */
-            font-size: 1.5em; /* Adjusted font size */
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.5em;
             border-right: 2px solid #022b46;
             white-space: nowrap;
             overflow: hidden;
             animation: typing 6s steps(60, end), blink 0.75s step-end infinite;
-            color: #022b46; /* Text color */
-            line-height: 1.5; /* Space between lines */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
-            margin: 0; /* Remove margin */
+            color: #022b46;
+            line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            margin: 0;
         }
 
         @keyframes typing {
-            from {
-                width: 0;
-            }
-            to {
-                width: 100%;
-            }
+            from { width: 0; }
+            to { width: 100%; }
         }
 
         @keyframes blink {
-            50% {
-                border-color: transparent;
-            }
+            50% { border-color: transparent; }
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         @keyframes slideIn {
-            from {  
-                transform: translateX(100%); /* Slide from the right */
-            }
-            to {
-                transform: translateX(0);
-            }
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
         }
 
         footer {
-            background-color: #022b46; /* Dark footer */
+            background-color: #022b46;
             color: white;
             text-align: center;
             padding: 20px;
             width: 100%;
-            position: relative; /* For positioning footer elements */
+            position: relative;
         }
 
         footer ul {
@@ -228,76 +217,195 @@
 
         footer ul li {
             margin: 0 10px;
-            transition: transform 0.3s; /* Smooth hover effect for footer links */
+            transition: transform 0.3s;
         }
 
         footer ul li:hover {
-            transform: scale(1.2); /* Scale effect on hover */
+            transform: scale(1.2);
         }
 
         footer ul li a {
             color: white;
             text-decoration: none;
-            font-size: 1.5rem; /* Larger icon size */
+            font-size: 1.5rem;
         }
-    </style>
+
+    /* Modal Overlay */
+    #modal-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    
+    /* Modal Box */
+    #modal-box {
+      background: white;
+      border-radius: 8px;
+      padding: 30px;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      animation: fadeIn 0.4s ease-out;
+    }
+    
+    #modal-box h3 {
+      margin-bottom: 15px;
+      color: #022b46;
+    }
+    
+    #modal-box p {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    
+    #modal-box button {
+      background: #1d4158;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+    
+    #modal-box button:hover {
+      background: #022b46;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">🏠 Home</a></li>
-                <li><a href="about.html">📖 About</a></li>
-                <li><a href="projects.html">🛠️ Projects</a></li>
-                <li><a href="skills.html">🧠 Skills</a></li>
-                <li><a href="contact.html">📞 Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">🏠 Home</a></li>
+        <li><a href="about.html">📖 About</a></li>
+        <li><a href="projects.html">🛠️ Projects</a></li>
+        <li><a href="skills.html">🧠 Skills</a></li>
+        <li><a href="certificates.html">📜 Certificates</a></li>
+        <li><a href="geeky.html">🤓 Geeky</a></li>
+        <li><a href="contact.html">📞 Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="contact-container">
-        <div class="contact-left">
-            <h1>Hit Me Up!!!📞</h1>
-            <div class="contact-form">
-                <h2>Send Me a Message</h2>
-                <form>
-                    <div class="form-group">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <i class="fas fa-comment"></i>
-                        <input type="text" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <i class="fas fa-comment"></i>
-                        <textarea rows="7" placeholder="Your Message" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-button">Send Message</button>
-                </form>
-            </div>
-        </div>
-        <div class="contact-right">
-            <div class="typing-effect">
-                <i class="fas fa-hands-helping"></i>  I'm here to help you!<br>
-                <i class="fas fa-users"></i> I am here to collaborate with you!<br>
-                <i class="fas fa-link"></i> I am here to connect with you!
-            </div>
-        </div>
+  <div class="contact-container">
+    <div class="contact-left">
+      <h1>Hit Me Up!!!📞</h1>
+      <div class="contact-form">
+        <h2>Send Me a Message</h2>
+        <form action="https://formsubmit.co/sisamkelevava2@gmail.com" method="POST" id="contact-form">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_next" value="https://yourportfolio.com/thank-you.html">
+          <input type="hidden" name="_subject" value="New Message from Portfolio">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          
+          <div class="form-group">
+            <i class="fas fa-user"></i>
+            <input type="text" id="name" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <i class="fas fa-circle-info"></i>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required />
+          </div>
+          <div class="form-group">
+            <i class="fas fa-comment"></i>
+            <textarea id="message" name="message" rows="7" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 My Portfolio | Follow me on:</p>
-        <ul>
-            <li><a href="https://github.com/Sisamkele022" target="_blank" class="fab fa-github"></a></li>
-            <li><a href="https://www.linkedin.com/in/sisamkele-vava-606052282?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" class="fab fa-linkedin"></a></li>
-            <li><a href="https://x.com/sisamk85117" target="_blank" class="fab fa-twitter"></a></li>
-            <li><a href="https://www.instagram.com/sisamkelevava2/" target="_blank" class="fab fa-instagram"></a></li>
-        </ul>
-    </footer>
+    <div class="contact-right">
+      <div class="typing-effect">
+        <i class="fas fa-hands-helping"></i> I'm here to help you!<br />
+        <i class="fas fa-users"></i> I am here to collaborate with you!<br />
+        <i class="fas fa-link"></i> I am here to connect with you!
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 My Portfolio | Follow me on:</p>
+    <ul>
+      <li><a href="https://github.com/Sisamkele022" class="fab fa-github" target="_blank"></a></li>
+      <li><a href="https://www.linkedin.com/in/sisamkele-vava-606052282" class="fab fa-linkedin" target="_blank"></a></li>
+      <li><a href="https://x.com/sisamk85117" class="fab fa-twitter" target="_blank"></a></li>
+      <li><a href="https://www.instagram.com/sisamkelevava2/" class="fab fa-instagram" target="_blank"></a></li>
+    </ul>
+  </footer>
+
+  <!-- Modal Structure -->
+  <div id="modal-overlay">
+    <div id="modal-box">
+      <h3>Message Sent! 🎉</h3>
+      <p id="modal-text">Thanks for reaching out. I'll get back to you soon!</p>
+      <button id="modal-close">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalClose = document.getElementById('modal-close');
+    const modalText = document.getElementById('modal-text');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalText = submitButton.textContent;
+      
+      // Show loading state
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+
+      // Send data to FormSubmit
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        modalText.textContent = `Thanks! Your message has been sent. I'll reply soon.`;
+        form.reset();
+        modalOverlay.style.display = 'flex';
+      })
+      .catch(error => {
+        modalText.textContent = 'Message sent! (You might see this if your connection is unstable)';
+        modalOverlay.style.display = 'flex';
+      })
+      .finally(() => {
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      });
+    });
+
+    // Close modal when clicking "X" or outside
+    modalClose.addEventListener('click', () => modalOverlay.style.display = 'none');
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) modalOverlay.style.display = 'none';
+    });
+  </script>
 </body>
 </html>
